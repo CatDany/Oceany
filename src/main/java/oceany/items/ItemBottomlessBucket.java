@@ -33,7 +33,8 @@ public class ItemBottomlessBucket extends ModItemBase
 		if (obj != null && obj.typeOfHit == MovingObjectType.BLOCK)
 		{
 			if (world.canMineBlock(player, obj.blockX, obj.blockY, obj.blockZ)
-			 && player.canPlayerEdit(obj.blockX, obj.blockY, obj.blockZ, obj.sideHit, stack))
+			 && player.canPlayerEdit(obj.blockX, obj.blockY, obj.blockZ, obj.sideHit, stack)
+			 && world.getBlock(obj.blockX, obj.blockY, obj.blockZ).getMaterial().isLiquid())
 			{
 				world.setBlockToAir(obj.blockX, obj.blockY, obj.blockZ);
 			}
