@@ -30,6 +30,7 @@ minecraft {
     assetDir = "eclipse/assets"
 	
 	replace '%MOD_VERSION%', project.version
+	replace '%FINGERPRINT%', System.getenv('FINGERPRINT')
 }
 
 dependencies {

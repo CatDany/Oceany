@@ -1,13 +1,14 @@
 package oceany.gui.client;
 
+import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.StatCollector;
 import oceany.Refs;
 import oceany.gui.server.ContainerOceanyInfuser;
 import oceany.libs.LocalizationHelper;
-import oceany.libs.Paragraph;
+import oceany.network.PacketHandler;
+import oceany.network.packet.PacketInfuserEjectChange;
 import oceany.tile.TileOceanyInfuser;
 
 public class GuiOceanyInfuser extends GuiContainer
@@ -25,6 +26,13 @@ public class GuiOceanyInfuser extends GuiContainer
 	}
 	
 	@Override
+	public void drawScreen(int par1, int par2, float par3)
+	{
+		super.drawScreen(par1, par2, par3);
+		buttonList.add(new GuiButton(0, guiLeft + 48, guiTop + 60, 80, 20, LocalizationHelper.get("info.oceany_infuser.eject") + " " + (tile.isEjecting ? LocalizationHelper.get("info.oceany_infuser.disabled") : LocalizationHelper.get("info.oceany_infuser.enabled"))));
+	}
+	
+	@Override
 	protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3)
 	{
 		mc.renderEngine.bindTexture(texture);
@@ -38,6 +46,19 @@ public class GuiOceanyInfuser extends GuiContainer
 		{
 			String strCost = LocalizationHelper.get("info.oceany_infuser.cost", (int)(tile.getEnergyCostFromInput(tile.inventory[0]) - (tile.process / 100 * tile.getEnergyCostFromInput(tile.inventory[0]))));
 			drawCenteredString(mc.fontRenderer, strCost, guiLeft + xSize / 2, guiTop + 65, 0xffffff);
+		}
+	}
+	
+	@Override
+	protected void drawGuiContainerForegroundLayer(int par1, int par2) {}
+	
+	@Override
+	protected void actionPerformed(GuiButton button)
+	{
+		if (button.id == 0)
+		{
+			PacketHandler.instance().net.sendToServer(new PacketInfuserEjectChange.InfuserEjectMessage().set(tile, !tile.isEjecting));
+			tile.isEjecting = !tile.isEjecting;
 		}
 	}
 }

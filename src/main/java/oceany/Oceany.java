@@ -19,8 +19,8 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.FMLFingerprintViolationEvent;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLInterModComms;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
@@ -31,7 +31,8 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 	name = Refs.MOD_NAME,
 	dependencies = Refs.DEPENDENCIES,
 	version = Refs.VERSION,
-	guiFactory = Refs.GUI_FACTORY_PATH
+	guiFactory = Refs.GUI_FACTORY_PATH,
+	certificateFingerprint = Refs.FINGERPRINT
 )
 public class Oceany
 {
@@ -42,6 +43,12 @@ public class Oceany
 	public static ProxyCommon proxy;
 	
 	public static Logger logger;
+	
+	public void fingerprint(FMLFingerprintViolationEvent e)
+	{
+		logger.error("Fingerprint is invalid. It is possible that you're using unofficial or modified build of " + Refs.MOD_NAME + ".");
+		System.exit(0);
+	}
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent e)

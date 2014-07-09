@@ -15,6 +15,7 @@ item.squid_tentacle|1.name=Infused Squid Tentacle
 item.tentacle_bar|0.name=Tentacle Bar
 item.tentacle_bar|1.name=Infused Tentacle Bar
 item.oceanic_cutlass.name=Oceanic Cutlass
+item.bottomless_bucket.name=Bottomless Bucket
 
 itemGroup.oceany=Oceany Mod
 potion.speed_of_squid=Speed of Squid
@@ -26,6 +27,9 @@ info.oceany_core.perTick=Energy Per Tick: %s
 info.oceany_infuser.connected_to_core=Connected to Oceany Core
 info.oceany_infuser.core_not_found=Oceany Core Not Found!
 info.oceany_infuser.cost=Energy Required: %s
+info.oceany_infuser.eject=Eject:
+info.oceany_infuser.enabled=Enabled
+info.oceany_infuser.disabled=Disabled
 info.oceanic_cutlass.charged=Charged with %s points of Oceanic Energy
 info.oceanic_cutlass.not_charged=Not charged
 info.waila.oceany_core.tier=Tier

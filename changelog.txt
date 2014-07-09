@@ -1,5 +1,7 @@
-indev-69:
+indev-70 (Not built):
 - Added textures to #allthethings
+
+indev-69:
 - Added Bottomless Bucket, recipe for it
 - Oceany Infuser is now ISidedInventory, top is input, ejecting output to the bottom (you can enable it in GUI)
 - Set "static final" to TileOceanyInfuser.usagePerTick (code clean up)
