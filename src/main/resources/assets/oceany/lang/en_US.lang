@@ -1,0 +1,59 @@
+tile.oceany_core.name=Oceany Core
+tile.oceany_upgrade.name=Oceany Upgrade
+tile.oceany_upgrade|0.desc=Breath in Depth
+tile.oceany_upgrade|1.desc=Bright Sight
+tile.oceany_upgrade|2.desc=Creative
+tile.oceany_upgrade|3.desc=Speed of Squid
+tile.oceany_infuser.name=Oceany Infuser
+tile.oceany_squidogen.name=Oceany SquidoGen
+tile.advanced_oceany_squidogen.name=Advanced Oceany SquidoGen
+tile.tentacle_block|0.name=Tentacle Block
+tile.tentacle_block|1.name=Infused Tentacle Block
+
+item.squid_tentacle|0.name=Squid Tentacle
+item.squid_tentacle|1.name=Infused Squid Tentacle
+item.tentacle_bar|0.name=Tentacle Bar
+item.tentacle_bar|1.name=Infused Tentacle Bar
+item.oceanic_cutlass.name=Oceanic Cutlass
+
+itemGroup.oceany=Oceany Mod
+potion.speed_of_squid=Speed of Squid
+death.attack.squidogen=%s was slain by Oceany SquidoGen
+
+info.oceany_core.tier=Tier %s
+info.oceany_core.energy=Oceanic Energy: %s / %s
+info.oceany_core.perTick=Energy Per Tick: %s
+info.oceany_infuser.connected_to_core=Connected to Oceany Core
+info.oceany_infuser.core_not_found=Oceany Core Not Found!
+info.oceany_infuser.cost=Energy Required: %s
+info.oceanic_cutlass.charged=Charged with %s points of Oceanic Energy
+info.oceanic_cutlass.not_charged=Not charged
+info.waila.oceany_core.tier=Tier
+info.waila.oceany_core.energy=Energy
+info.waila.oceany_core.perTick=Per Tick
+info.waila.oceany_infuser.process=Process
+info.waila.oceany_infuser.input=Input
+info.waila.oceany_infuser.output=Output
+info.waila.oceany_infuser.cost=Energy Required
+info.waila.oceany_infuser.done=Done
+
+achievement.tentacle=Tentacles, why not?
+achievement.tentacle.desc=Kill a Squid and get its Tentacle
+
+achievement.tentacle_bar=Bar O'Tentacles
+achievement.tentacle_bar.desc=Craft a Tentacle Bar
+
+achievement.tentacle_block=Whole Block of Tentacles
+achievement.tentacle_block.desc=Craft a Tentacle Block
+
+achievement.oceany_core=Taking Over the Oceans!
+achievement.oceany_core.desc=Craft an Oceany Core
+
+achievement.oceany_upgrade=Upgrading the Oceans
+achievement.oceany_upgrade.desc=Craft your first Oceany Upgrade
+
+achievement.oceany_infuser=Infusing with Tentacles
+achievement.oceany_infuser.desc=Craft an Oceany Infuser
+
+achievement.oceanic_cutlass=Y'ARR, CAPTAIN!
+achievement.oceanic_cutlass.desc=Craft an Oceanic Cutlass

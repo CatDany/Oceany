@@ -1,0 +1,263 @@
+indev-69:
+- Added textures to #allthethings
+- Added Bottomless Bucket, recipe for it
+- Oceany Infuser is now ISidedInventory, top is input, ejecting output to the bottom (you can enable it in GUI)
+- Set "static final" to TileOceanyInfuser.usagePerTick (code clean up)
+
+indev-68:
+- Fixed a silly bug with IMessage constructor and Speed of Squid upgrade (I GOT IT MAN!!!!)
+
+indev-67:
+- Started debugging why EntityPlayer cannot be casted to EntityPlayerMP
+
+indev-66:
+- Fixed Config GUI (ClassNotFoundException 'oceany.Config.GuiFactory')
+
+indev-65:
+- Returned Waila compatibility because Waila erroring everything anyway, just removed Waila from workspace dependencies for now (it wasn't a mod's dependency!)
+
+indev-64:
+- Removed Waila compatibility at all (y u no update, waila?)
+
+indev-63:
+- Updated MC version to 1.7.10, bumped forge version to 1177 (from 1121)
+- NetworkHandler reworked
+- (Hopefully) fixed Speed of Squid upgrade
+- Removed Waila configuration to fix getCurrentLanguage() bug in Waila (oops it didn't do anything anyway >_>)
+
+indev-62:
+- Added custom recipe handler, atm only Oceany Infuser is supported. Started work on API.
+
+indev-61:
+- Registered TileEntity SquidoGen (it's extremely easy to forget)
+- TileOceanyCoreDependants now need to be placed 4 (instead of 3) blocks away from Oceany Core (solve problems with Adv. SquidoGen drops), code clean up
+- Oceany Infuser and Oceany SquidoGen now can be rotated to 4 sides (north, south, west, east)
+
+indev-60:
+- Temporarily removed packet sending from Speed of Squid potion effect (testing SquidoGens)
+
+indev-59:
+- Fixed: crash when trying to decode a packet (that wasn't actually encoded >_>)
+
+indev-58:
+- Fixed: crash when trying to send a packet (PacketHandler.channels != Oceany.channels, Dany)
+
+indev-57:
+- ATTEMPT #1 - GOAL: FIX NETWORK SYSTEM - ACTION: GET DETAILED CRASH INFO - SET - READY - GO - RESULT: FINE
+
+indev-56:
+- Added a localization line for damage source "squidogen" (maybe, in a weird circumstance it'll work, i doubt)
+- Fixed crash on initBlocks() (why boolean isn't java.lang.Boolean?)
+
+indev-55:
+- Added Oceany SquidoGen, Advanced Oceany SquidoGen
+- Added custom DamageSource system
+- Added custom damage source "squidogen"
+- Reduced Oceany Core passive energy generation (per tick)
+- Code clean up and ModTileOceanyCoreDependant
+- Added few localization lines
+- Implemented network system
+
+indev-54:
+- Added getSide() method to mod proxy
+- Fixed crash on EntityLivingBase tick (Custom Potions Handler)
+
+indev-53:
+- Some code clean up, different Oceany Upgrades now can have different energy usage
+
+indev-52:
+- Potion effect "Speed of Squid" now has a name
+- Custom potions now have icons
+- Added localization line for potion effect "Speed of Squid"
+- Added 1 recipe: Oceany Upgrade (Speed of Squid)
+- Removed localization line for potion effect "Breath in Depth" (potion.breath_in_depth), unused
+- Added energy usage per tick to Oceany Upgrade tooltip
+
+indev-51:
+- Registered event handler that's handling Speed of Squid potion effect (it's hard to explain..)
+
+indev-50:
+- Changed the way Oceany Upgrade "Speed of Squid" works
+
+indev-49:
+- Fixed the issue when Dany is writing random letters into changelog which doesn't matter at all (never gonna be fixed completely)
+
+indev-48:
+- Registered event handler that's tweaking Speed Potion effect (man, i'm a derp)
+
+indev-47:
+- Tweaked Speed Potion effect a little bit (not really)
+
+indev-46:
+- Added Oceany Upgrade: Speed of Squid
+
+indev-45:
+- Tile Entities are now syncing correctly
+
+indev-44:
+- Fixed crash when a mob tried to attack something with Oceanic Cutlass
+
+indev-43:
+- Oceanic Cutlass is depending on energy correctly
+
+indev-42:
+- Fixed achievement "Y'ARR, CAPTAIN!" name derpiness (.desc = ???, null = ???, return null, null = ???, derp)
+
+indev-41:
+- Changed Font Rendering in Oceany Core and Oceany Infuser GUIs (not really)
+
+indev-40:
+- Oceany Core GUI is now not accessible from attached Oceany Upgrades ONLY when player is holding any block and targeting the top of Oceany Upgrade
+- Oceany Upgrades are now emitting weak redstone signal to the top (if someone ever wants to place a Lamp on the post made out of upgrades >_>), not working if there's another upgrade on top of previous
+
+indev-39:
+- Fixed NullPointer when trying to click Oceany Upgrade without an item in your hand
+
+indev-38:
+- Oceany Core GUI is now not accessible from attached Oceany Upgrades when player is holding IOceanyBlock
+
+indev-37:
+- Oceany Core GUI is now accessible from any attached Oceany Upgrade
+
+indev-36:
+- Fixed crash from Oceanic Cutlass easter egg (now it's delayed easter egg :P)
+
+indev-35:
+- Improved Oceanic Cutlass easter egg
+
+indev-34
+- Added more additional information for Oceany blocks to Waila
+- Added localization lines for Waila tooltips
+
+indev-33:
+- Fixed Waila compatibility
+
+indev-32:
+- Added Waila compatibility
+
+indev-31:
+- Fixed Oceany Infuser recipe (man, wtf??)
+- Fixed achievement "Y'ARR, CAPTAIN" position (x != y, Dear Dany)
+
+indev-30:
+- Added a special easter egg when crafting Oceanic Cutlass
+- Added 1 achievement: "Y'ARR, CAPTAIN!"
+- Added 2 recipes: Oceany Infuser, Oceanic Cutlass
+
+indev-29:
+- Fixed achievements localization: name of "Infusing with Tentacles", description of "Upgrading the Oceans"
+
+indev-28:
+- Fixed Oceanic Cutlass localization (forgot to add line for it >_<)
+- Set Oceany Upgrades collision box to full (stop cheating)
+- Added information tip to Oceanic Cutlass
+- Fixed sound effects when Oceanic Cutlass is charging
+- Fixed Water Breathing effect from Oceany Core wasn't safe enough
+
+indev-27:
+- Added Oceanic Cutlass
+- Added Oceany Upgrade: Creative
+
+indev-26:
+- Fixed Oceany Upgrade neighbors rendering
+
+indev-25:
+- Added 6 recipes
+- Reduced Oceany Infuser rate from 5 OE/t to 3 OE/t
+- Oceany Infuser GUI is now shoing left energy in the line at the bottom
+- Oceany Upgrades now looks like a post (you can put a glowstone on top of it! :D)
+
+indev-24:
+- Added Tier 3 to Oceany Core
+- Squid Tentacle, Tentacle Bar and Tentacle Block now have their "Infused" form
+
+indev-23:
+- Finally added localization line for Oceany Infuser (write in changelog and forget to do >_<)
+- Added a few localization lines for Oceany Infuser GUI
+
+indev-22:
+- Added localization support for a few lines in Oceany Core and Oceany Infuser GUIs
+- Fixed derpiness with isCoreValid() in Oceany Infuser (false != true, Dear Dany)
+
+indev-21:
+- Fixed client freeze when Oceany Infuser GUI is opened (why can't I make loops properly!?)
+
+indev-20:
+- Fixed Oceany Core and Oceany Infuser GUI texture (hopefully!)
+
+indev-19:
+- Fixed Oceany Infuser GUI (added slots, fixed text position)
+- Fixed Oceany Infuser called "tile.oceany_infuser.name" (added localization line) (not really)
+
+indev-18:
+- Added Oceany Infuser
+- Added Infused Squid Tentacle (the same item as Squid Tentacle), Infused Tentacle Bar (the same item as Tentacle Bar), Insufer Tentacle Block (the same block as Tentacle Block)
+- Added 1 achievement: Infusing with Tentacles
+- Added 1 recipe: Tentacle Block -> Tentacle Bars
+- Finally fixed GUI texture problem. Oceany Core GUI is back! (not really)
+
+indev-17:
+- Fixed derpiness, Oceany Upgrade is now IOceanyBlock
+
+indev-16:
+- Fixed NullPointer in BlockOceanyUpgrade icons on registerBlockIcons
+
+indev-15:
+- Oceany Core tier is now showing in its GUI
+- Implemented the ability to upgrade Oceany Core
+- Added Oceany Upgrades: Breath in Depth, Bright Sight
+- Added 2 achievements: Taking Over the Oceans!, Upgrading the Oceans
+- Added 1 potion effect: Breath in Depth
+- Oceany Core is now emitting light like a glowstone block (1.0F)
+- Removed Oceany Core GUI texture (i give up)
+
+indev-14:
+- Just another attempt to fix Oceany Core GUI missing texture
+
+indev-13:
+- Hopefully fixed Oceany Core GUI texture
+
+indev-12:
+- Fixed Oceany Core lose its energy on world relog / server restart (forgot to register tile entity >_<)
+
+indev-11:
+- Fixed Tentacle Block material derpiness
+
+indev-10:
+- Added texture to Oceany Core GUI
+
+indev-9:
+- Just another attempt to fix Oceany Core GUI crash
+
+indev-8:
+- Fixed Oceany Core GUI crash (forgot cast Integers to String in String.format)
+
+indev-7:
+- Fixed GUI crash (forgot to register GuiHandler >_<)
+
+indev-6:
+- Added GUI to Oceany Core
+- Fixed: achievement "Whole Block of Tentacles" wasn't available
+- Second attempt to fix Creative Tab name, fixed now (hopefully)
+
+indev-5:
+- Added Tentacle Block
+- Added 1 achievement: "Whole Block of Tentacles"
+- Added 1 recipe: Tentacle Block
+- Started work on TileEntity Oceany Core, does nothing for now
+
+indev-4:
+- Fixed derpiness with achievement page
+
+indev-3:
+- Added item pickup event handler for achievements
+
+indev-2:
+- Added 'en_US' localization
+- Fixed creative tab name
+
+indev-1:
+- Added Oceany Core
+- Added Squid Tentacle, Tentacle Bar
+- Added 2 achievements: "Tentacles, why not?", "Bar O'Tentacles"
+- Added 1 recipe: Tentacle Bar

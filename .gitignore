@@ -1,0 +1,21 @@
+#################
+## Eclipse
+#################
+.gradle
+.settings
+bin
+build
+#dep
+dep-1.7.2
+dep-src
+eclipse
+gradle
+#src
+.classpath
+.project
+build.cmd
+#build.gradle
+build.gradle_backup
+#changelog.txt
+gradlew
+gradlew.bat
