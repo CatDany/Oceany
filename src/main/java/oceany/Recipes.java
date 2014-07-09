@@ -98,6 +98,20 @@ public class Recipes
 				'i', Items.iron_ingot,
 				'b', Blocks.iron_bars);
 		
+		addOreRecipe(ModBlocks.oceany_squidogen, 1, 0,
+				"isi", "dtd", "iTi",
+				'i', new ItemStack(Items.dye),
+				's', Items.golden_sword,
+				'd', Items.diamond,
+				't', "blockSquidTentacle",
+				'T', "ingotSquidTentacle");
+		
+		addOreRecipe(ModBlocks.advanced_oceany_squidogen, 1, 0,
+				"t", "g", "h",
+				't', "blockInfusedSquidTentacle",
+				'g', ModBlocks.oceany_squidogen,
+				'h', Blocks.hopper);
+		
 		//--- Mod Recipes ---//
 		InfuserRecipeManager.instance().addRecipe(
 				new ItemStack(ModItems.squid_tentacle, 1, 0),
