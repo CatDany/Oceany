@@ -19,7 +19,6 @@ public class TileOceanyInfuser extends ModTileOceanyCoreDependant implements ISi
 	public static final int usagePerTick = 3;
 	
 	public double process;
-	public boolean isEjecting;
 	
 	private static final int sizeInventory = 2;
 	public ItemStack[] inventory = new ItemStack[sizeInventory];
@@ -65,20 +64,6 @@ public class TileOceanyInfuser extends ModTileOceanyCoreDependant implements ISi
 			{
 				process = 0;
 			}
-			
-			if (isEjecting && inventory[1] != null)
-			{
-				if (worldObj.getTileEntity(xCoord, yCoord - 1, zCoord) instanceof ISidedInventory)
-				{
-					TileEntity tileInv = worldObj.getTileEntity(xCoord, yCoord - 1, zCoord);
-					ISidedInventory sidedInv = (ISidedInventory)worldObj.getTileEntity(xCoord, yCoord - 1, zCoord);
-					if (InventoryUtils.canInsert(tileInv, inventory[1].copy(), RotationUtils.getSideIDFromDirection(ForgeDirection.UP), false))
-					{
-						InventoryUtils.putStackInInventory(sidedInv, inventory[1].copy(), RotationUtils.getSideIDFromDirection(ForgeDirection.UP), false);
-						inventory[1] = null;
-					}
-				}
-			}
 			markDirty();
 		}
 	}
@@ -87,7 +72,6 @@ public class TileOceanyInfuser extends ModTileOceanyCoreDependant implements ISi
 	{
 		super();
 		process = 0.00;
-		isEjecting = true;
 	}
 	
 	@Override

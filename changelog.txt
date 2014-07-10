@@ -3,7 +3,7 @@ indev-70 (Not built):
 
 indev-69:
 - Added Bottomless Bucket, recipe for it
-- Oceany Infuser is now ISidedInventory, top is input, ejecting output to the bottom (you can enable it in GUI)
+- Oceany Infuser is now ISidedInventory, top is input, any NSWE side or bottom can be output
 - Set "static final" to TileOceanyInfuser.usagePerTick (code clean up)
 
 indev-68:

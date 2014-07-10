@@ -2,7 +2,6 @@ package oceany.network;
 
 import oceany.Refs;
 import oceany.network.packet.PacketFly;
-import oceany.network.packet.PacketInfuserEjectChange;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.relauncher.Side;
@@ -16,7 +15,6 @@ public class PacketHandler
 	{
 		net = NetworkRegistry.INSTANCE.newSimpleChannel(Refs.MOD_ID.toUpperCase());
 		this.registerMessage(0, PacketFly.class, PacketFly.FlyMessage.class);
-		this.registerMessage(1, PacketInfuserEjectChange.class, PacketInfuserEjectChange.InfuserEjectMessage.class);
 	}
 	
 	public void registerMessage(int index, Class packet, Class message)

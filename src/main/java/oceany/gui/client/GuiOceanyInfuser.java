@@ -7,8 +7,6 @@ import net.minecraft.util.ResourceLocation;
 import oceany.Refs;
 import oceany.gui.server.ContainerOceanyInfuser;
 import oceany.libs.LocalizationHelper;
-import oceany.network.PacketHandler;
-import oceany.network.packet.PacketInfuserEjectChange;
 import oceany.tile.TileOceanyInfuser;
 
 public class GuiOceanyInfuser extends GuiContainer
@@ -29,7 +27,6 @@ public class GuiOceanyInfuser extends GuiContainer
 	public void drawScreen(int par1, int par2, float par3)
 	{
 		super.drawScreen(par1, par2, par3);
-		buttonList.add(new GuiButton(0, guiLeft + 48, guiTop + 60, 80, 20, LocalizationHelper.get("info.oceany_infuser.eject") + " " + (tile.isEjecting ? LocalizationHelper.get("info.oceany_infuser.disabled") : LocalizationHelper.get("info.oceany_infuser.enabled"))));
 	}
 	
 	@Override
@@ -53,12 +50,5 @@ public class GuiOceanyInfuser extends GuiContainer
 	protected void drawGuiContainerForegroundLayer(int par1, int par2) {}
 	
 	@Override
-	protected void actionPerformed(GuiButton button)
-	{
-		if (button.id == 0)
-		{
-			PacketHandler.instance().net.sendToServer(new PacketInfuserEjectChange.InfuserEjectMessage().set(tile, !tile.isEjecting));
-			tile.isEjecting = !tile.isEjecting;
-		}
-	}
+	protected void actionPerformed(GuiButton button) {}
 }
