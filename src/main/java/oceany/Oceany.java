@@ -2,6 +2,8 @@ package oceany;
 
 import net.minecraftforge.common.AchievementPage;
 import oceany.blocks.ModBlocks;
+import oceany.command.CommandGC;
+import oceany.command.ModCommandBase;
 import oceany.damage.ModDamageSources;
 import oceany.event.EventAchievements;
 import oceany.event.EventPotions;
@@ -25,6 +27,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLInterModComms;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 
 @Mod
@@ -88,5 +91,10 @@ public class Oceany
 	public void postInit(FMLPostInitializationEvent e)
 	{
 		// server commands
+	}
+	
+	public void serverStarting(FMLServerStartingEvent e)
+	{
+		ModCommandBase.registerCommand(new CommandGC(), e);
 	}
 }

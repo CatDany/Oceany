@@ -4,14 +4,18 @@ import java.util.List;
 
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.passive.EntitySquid;
-import net.minecraft.inventory.ISidedInventory;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraftforge.common.util.ForgeDirection;
 import oceany.Config;
 import oceany.damage.ModDamageSources;
+import oceany.libs.InventoryUtils;
+import oceany.libs.RotationUtils;
 
 public class TileOceanySquidoGen extends ModTileOceanyCoreDependant
 {
@@ -56,14 +60,17 @@ public class TileOceanySquidoGen extends ModTileOceanyCoreDependant
 	
 	public void handleDrops(List<EntityItem> drops)
 	{
-		if (worldObj.getTileEntity(xCoord, yCoord, zCoord) instanceof ISidedInventory)
+		if (worldObj.getTileEntity(xCoord, yCoord - 1, zCoord) instanceof IInventory)
 		{
-			ISidedInventory tile = (ISidedInventory)worldObj.getTileEntity(xCoord, yCoord, zCoord);
+			TileEntity tile = worldObj.getTileEntity(xCoord, yCoord - 1, zCoord);
+			IInventory tileInv = (IInventory)tile;
 			for (EntityItem i : drops)
 			{
 				ItemStack item = i.getEntityItem();
-				EntityItem entity = new EntityItem(worldObj, xCoord + 0.5, yCoord - 0.5, zCoord + 0.5, item);
-				worldObj.spawnEntityInWorld(entity);
+				if (InventoryUtils.canInsert(tile, item, RotationUtils.getSideIDFromDirection(ForgeDirection.UP), false))
+				{
+					InventoryUtils.putStackInInventory(tileInv, item, RotationUtils.getSideIDFromDirection(ForgeDirection.UP), false);
+				}
 			}
 		}
 	}

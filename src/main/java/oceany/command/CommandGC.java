@@ -9,6 +9,8 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ChatComponentText;
 import oceany.Oceany;
 import oceany.libs.PlayerUtils;
+import oceany.network.PacketHandler;
+import oceany.network.packet.PacketGC.GCMessage;
 import cpw.mods.fml.relauncher.Side;
 
 public class CommandGC extends ModCommandBase
@@ -37,7 +39,7 @@ public class CommandGC extends ModCommandBase
 			if (sender instanceof EntityPlayerMP)
 			{
 				EntityPlayerMP player = (EntityPlayerMP)sender;
-				//PacketHandler.instance().net.sendTo(new GCMessage(), player);
+				PacketHandler.instance().net.sendTo(new GCMessage(), player);
 			}
 			else
 			{
@@ -50,12 +52,18 @@ public class CommandGC extends ModCommandBase
 			if (foundPlayer != null && foundPlayer instanceof EntityPlayerMP)
 			{
 				EntityPlayerMP player = (EntityPlayerMP)foundPlayer;
-				//PacketHandler.instance().net.sendTo(new GCMessage(), player);
+				PacketHandler.instance().net.sendTo(new GCMessage(), player);
 			}
 			else
 			{
 				sender.addChatMessage(new ChatComponentText("That player not found."));
 			}
+		}
+		else if (args[1].equals("server"))
+		{
+			Oceany.logger.info("GC started by " + sender.getCommandSenderName());
+			gc(sender);
+			Oceany.logger.info("GC finished.");
 		}
 	}
 	

@@ -3,6 +3,8 @@ package oceany.command;
 import java.util.ArrayList;
 import java.util.List;
 
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import oceany.libs.PermissionHelper;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
@@ -20,6 +22,11 @@ public abstract class ModCommandBase extends CommandBase
 		this.name = name;
 		this.permissionLevel = permissionLevel;
 		addAliasesToList(this.aliases);
+	}
+	
+	public static void registerCommand(ModCommandBase cmd, FMLServerStartingEvent e)
+	{
+		e.registerServerCommand(cmd);
 	}
 	
 	public abstract void addAliasesToList(List aliases);
