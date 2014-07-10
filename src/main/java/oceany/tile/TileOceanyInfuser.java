@@ -19,6 +19,9 @@ public class TileOceanyInfuser extends ModTileOceanyCoreDependant implements ISi
 	public static final int usagePerTick = 3;
 	
 	public double process;
+
+	@Deprecated // TODO Make Oceany Infuser 
+	public boolean isEjecting;
 	
 	private static final int sizeInventory = 2;
 	public ItemStack[] inventory = new ItemStack[sizeInventory];
@@ -150,6 +153,13 @@ public class TileOceanyInfuser extends ModTileOceanyCoreDependant implements ISi
 	@Override
 	public boolean canExtractItem(int slot, ItemStack stack, int side)
 	{
+		if (slot == 1 && side != RotationUtils.getSideIDFromDirection(ForgeDirection.UP))
+		{
+			if (inventory[slot] == null)
+			{
+				return true;
+			}
+		}
 		return false;
 	}
 	
