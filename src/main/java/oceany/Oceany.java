@@ -9,6 +9,7 @@ import oceany.event.EventSquidDrops;
 import oceany.gui.GuiHandler;
 import oceany.items.ModItems;
 import oceany.libs.EventBusHelper;
+import oceany.libs.TickHandler;
 import oceany.network.PacketHandler;
 import oceany.potion.ModPotions;
 import oceany.proxy.ProxyCommon;
@@ -21,6 +22,7 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLFingerprintViolationEvent;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLInterModComms;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
@@ -77,7 +79,9 @@ public class Oceany
 		EventBusHelper.checkBusAndRegister(new EventSquidDrops());
 		EventBusHelper.checkBusAndRegister(new EventPotions());
 		
-		//FMLInterModComms.sendMessage("Waila", "register", "oceany.compat.CompatWaila.register");
+		TickHandler.registerTickHandler(new VersionChecker());
+		
+		FMLInterModComms.sendMessage("Waila", "register", "oceany.compat.CompatWaila.register");
 		// WorldGenHandler.initWorldGeneration();
 	}
 	

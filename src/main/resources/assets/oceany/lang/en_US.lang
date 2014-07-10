@@ -21,6 +21,10 @@ itemGroup.oceany=Oceany Mod
 potion.speed_of_squid=Speed of Squid
 death.attack.squidogen=%s was slain by Oceany SquidoGen
 
+info.runtime.versionchecker.outdated=You are running ++c%s version of %s, the latest version is %s
+info.runtime.versionchecker.clickfor=Click for...
+info.runtime.versionchecker.download_page=Download Page
+info.runtime.versionchecker.download_page_hover=Click this to go to the mod's download page
 info.oceany_core.tier=Tier %s
 info.oceany_core.energy=Oceanic Energy: %s / %s
 info.oceany_core.perTick=Energy Per Tick: %s

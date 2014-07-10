@@ -31,6 +31,7 @@ minecraft {
 	
 	replace '%MOD_VERSION%', project.version
 	replace '%FINGERPRINT%', System.getenv('FINGERPRINT')
+	replace '%VERSION_CHECKER_URL%', System.getenv('VERSION_CHECKER_URL')
 }
 
 dependencies {
@@ -57,7 +58,7 @@ processResources
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
-	from('D:\\Box\\_DanyCode\\Minecraft\\1.7\\RandomIdeas') {
+	from('D:\\Box\\_DanyCode\\Minecraft\\1.7\\Oceany') {
 		include 'changelog.txt'
 	}
 }

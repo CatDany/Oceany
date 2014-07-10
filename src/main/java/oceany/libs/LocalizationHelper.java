@@ -6,13 +6,11 @@ public class LocalizationHelper
 {
 	public static String get(String string)
 	{
-		// u0026 = &
-		return StatCollector.translateToLocal(string);
+		return StatCollector.translateToLocal(string).replace("++", Paragraph.sign);
 	}
 	
 	public static String get(String string, Object... format)
 	{
-		// u0026 = & 
-		return StatCollector.translateToLocalFormatted(string, format);
+		return StatCollector.translateToLocalFormatted(string, format).replace("++", Paragraph.sign);
 	}
 }
