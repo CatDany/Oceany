@@ -5,7 +5,7 @@ import java.util.List;
 
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
-import oceany.libs.PermissionHelper;
+import danylibs.libs.PermissionHelper;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;

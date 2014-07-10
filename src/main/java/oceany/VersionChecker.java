@@ -8,14 +8,14 @@ import java.nio.channels.ReadableByteChannel;
 import java.util.Random;
 
 import net.minecraft.entity.player.EntityPlayer;
-import oceany.libs.LocalizationHelper;
-import oceany.libs.PlayerUtils;
-import oceany.libs.TickHandler;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.Files;
 
 import cpw.mods.fml.common.gameevent.TickEvent.Type;
+import danylibs.libs.LocalizationHelper;
+import danylibs.libs.PlayerUtils;
+import danylibs.libs.TickHandler;
 
 public class VersionChecker extends TickHandler
 {
@@ -68,7 +68,14 @@ public class VersionChecker extends TickHandler
 	@Override
 	public void tickEnd(ITickData tickData)
 	{
-		if (!shown)
+		if (!shown && isCorrupted)
+		{
+			EntityPlayer player = ((TickDataPlayer)tickData).getPlayer();
+			String corrupted = LocalizationHelper.get("info.runtime.versionchecker.corrupted", Refs.MOD_NAME, Refs.VERSION);
+			PlayerUtils.print(player, corrupted);
+			shown = true;
+		}
+		else if (!shown && isUpdated)
 		{
 			EntityPlayer player = ((TickDataPlayer)tickData).getPlayer();
 			String outdated = LocalizationHelper.get("info.runtime.versionchecker.outdated", Refs.VERSION, new_version);

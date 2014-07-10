@@ -25,6 +25,7 @@ info.runtime.versionchecker.outdated=You are running ++c%s version of %s, the la
 info.runtime.versionchecker.clickfor=Click for...
 info.runtime.versionchecker.download_page=Download Page
 info.runtime.versionchecker.download_page_hover=Click this to go to the mod's download page
+info.runtime.versionchecker.corrupted=We were unable to check new versions of %s, but I want to say that you're running %s version :)
 info.oceany_core.tier=Tier %s
 info.oceany_core.energy=Oceanic Energy: %s / %s
 info.oceany_core.perTick=Energy Per Tick: %s

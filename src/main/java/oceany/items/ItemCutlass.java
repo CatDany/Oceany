@@ -18,13 +18,13 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
 import oceany.CreativeTabOceany;
 import oceany.Refs;
-import oceany.libs.IconRegHelper;
-import oceany.libs.LocalizationHelper;
-import oceany.libs.PlayerUtils;
-import oceany.libs.SoundHelper;
 import oceany.tile.TileOceanyCore;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import danylibs.libs.IconRegHelper;
+import danylibs.libs.LocalizationHelper;
+import danylibs.libs.PlayerUtils;
+import danylibs.libs.SoundHelper;
 
 public class ItemCutlass extends ItemSword
 {

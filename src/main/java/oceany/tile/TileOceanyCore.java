@@ -3,6 +3,8 @@ package oceany.tile;
 import java.util.List;
 
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin.DependsOn;
+import danylibs.libs.EntityHelper;
+import danylibs.libs.ItemUtils;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -23,8 +25,6 @@ import net.minecraftforge.common.ForgeChunkManager.LoadingCallback;
 import oceany.api.IOceanyBlock;
 import oceany.blocks.BlockOceanyUpgrade;
 import oceany.blocks.ModBlocks;
-import oceany.libs.EntityHelper;
-import oceany.libs.ItemUtils;
 import oceany.potion.ModPotions;
 
 public class TileOceanyCore extends ModTileBase

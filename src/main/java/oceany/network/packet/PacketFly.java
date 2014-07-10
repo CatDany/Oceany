@@ -3,12 +3,12 @@ package oceany.network.packet;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
-import oceany.libs.PlayerUtils;
 import oceany.network.packet.PacketFly.FlyMessage;
 import cpw.mods.fml.common.network.ByteBufUtils;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
+import danylibs.libs.PlayerUtils;
 
 public class PacketFly implements IMessageHandler<FlyMessage, IMessage>
 {

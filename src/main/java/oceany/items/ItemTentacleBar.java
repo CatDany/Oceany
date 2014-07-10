@@ -2,7 +2,7 @@ package oceany.items;
 
 import java.util.List;
 
-import oceany.libs.IconRegHelper;
+import danylibs.libs.IconRegHelper;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;

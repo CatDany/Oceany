@@ -10,8 +10,6 @@ import oceany.event.EventPotions;
 import oceany.event.EventSquidDrops;
 import oceany.gui.GuiHandler;
 import oceany.items.ModItems;
-import oceany.libs.EventBusHelper;
-import oceany.libs.TickHandler;
 import oceany.network.PacketHandler;
 import oceany.potion.ModPotions;
 import oceany.proxy.ProxyCommon;
@@ -29,6 +27,8 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import danylibs.libs.EventBusHelper;
+import danylibs.libs.TickHandler;
 
 @Mod
 (

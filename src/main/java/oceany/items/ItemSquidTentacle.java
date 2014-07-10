@@ -2,13 +2,13 @@ package oceany.items;
 
 import java.util.List;
 
+import danylibs.libs.IconRegHelper;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import oceany.CreativeTabOceany;
-import oceany.libs.IconRegHelper;
 
 public class ItemSquidTentacle extends ModItemBase
 {

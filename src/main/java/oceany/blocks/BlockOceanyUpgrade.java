@@ -11,10 +11,10 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import oceany.Oceany;
 import oceany.api.IOceanyBlock;
-import oceany.libs.IconRegHelper;
-import oceany.libs.ItemUtils;
 import oceany.tile.TileOceanyCore;
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
+import danylibs.libs.IconRegHelper;
+import danylibs.libs.ItemUtils;
 
 public class BlockOceanyUpgrade extends ModBlockBase implements IOceanyBlock
 {

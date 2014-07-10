@@ -2,10 +2,10 @@ package oceany.event;
 
 import oceany.ModAchievementPage;
 import oceany.Refs;
-import oceany.libs.ItemUtils;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent.ItemCraftedEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent.ItemPickupEvent;
+import danylibs.libs.ItemUtils;
 
 
 public class EventAchievements

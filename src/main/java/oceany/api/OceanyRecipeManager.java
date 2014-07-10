@@ -3,9 +3,9 @@ package oceany.api;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import danylibs.libs.ItemUtils;
 import net.minecraft.item.ItemStack;
 import oceany.Oceany;
-import oceany.libs.ItemUtils;
 
 public class OceanyRecipeManager
 {

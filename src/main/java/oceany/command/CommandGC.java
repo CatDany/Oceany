@@ -8,10 +8,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ChatComponentText;
 import oceany.Oceany;
-import oceany.libs.PlayerUtils;
 import oceany.network.PacketHandler;
 import oceany.network.packet.PacketGC.GCMessage;
 import cpw.mods.fml.relauncher.Side;
+import danylibs.libs.PlayerUtils;
 
 public class CommandGC extends ModCommandBase
 {

@@ -1,6 +1,3 @@
-#################
-## Eclipse
-#################
 .gradle
 .settings
 bin
@@ -19,3 +16,4 @@ build.gradle_backup
 #changelog.txt
 gradlew
 gradlew.bat
+danylibs

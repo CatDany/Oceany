@@ -1,6 +1,6 @@
 package oceany.blocks;
 
-import oceany.libs.IconRegHelper;
+import danylibs.libs.IconRegHelper;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;

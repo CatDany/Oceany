@@ -1,9 +1,9 @@
 package oceany.items;
 
+import danylibs.libs.IconRegHelper;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import oceany.CreativeTabOceany;
-import oceany.libs.IconRegHelper;
 
 public class ModItemBase extends Item
 {

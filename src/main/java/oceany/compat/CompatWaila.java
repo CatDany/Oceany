@@ -2,6 +2,9 @@ package oceany.compat;
 
 import java.util.List;
 
+import danylibs.libs.ItemUtils;
+import danylibs.libs.LocalizationHelper;
+import danylibs.libs.Paragraph;
 import mcp.mobius.waila.api.IWailaConfigHandler;
 import mcp.mobius.waila.api.IWailaDataAccessor;
 import mcp.mobius.waila.api.IWailaDataProvider;
@@ -13,9 +16,6 @@ import oceany.Oceany;
 import oceany.Refs;
 import oceany.blocks.ModBlocks;
 import oceany.blocks.itemblocks.ItemBlockOceanyUpgrade;
-import oceany.libs.ItemUtils;
-import oceany.libs.LocalizationHelper;
-import oceany.libs.Paragraph;
 import oceany.tile.TileOceanyCore;
 import oceany.tile.TileOceanyInfuser;
 import oceany.tile.TileOceanySquidoGen;

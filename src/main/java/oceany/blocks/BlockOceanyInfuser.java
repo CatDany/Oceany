@@ -10,10 +10,10 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import oceany.Oceany;
 import oceany.api.IOceanyBlock;
-import oceany.libs.IconRegHelper;
-import oceany.libs.RotationUtils;
 import oceany.tile.TileOceanyInfuser;
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
+import danylibs.libs.IconRegHelper;
+import danylibs.libs.RotationUtils;
 
 public class BlockOceanyInfuser extends ModBlockContainerBase implements IOceanyBlock
 {

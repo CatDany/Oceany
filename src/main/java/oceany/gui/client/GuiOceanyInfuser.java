@@ -1,12 +1,12 @@
 package oceany.gui.client;
 
+import danylibs.libs.LocalizationHelper;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 import oceany.Refs;
 import oceany.gui.server.ContainerOceanyInfuser;
-import oceany.libs.LocalizationHelper;
 import oceany.tile.TileOceanyInfuser;
 
 public class GuiOceanyInfuser extends GuiContainer

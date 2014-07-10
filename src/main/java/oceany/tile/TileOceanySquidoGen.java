@@ -2,6 +2,8 @@ package oceany.tile;
 
 import java.util.List;
 
+import danylibs.libs.InventoryUtils;
+import danylibs.libs.RotationUtils;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.passive.EntitySquid;
 import net.minecraft.inventory.IInventory;
@@ -14,8 +16,6 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraftforge.common.util.ForgeDirection;
 import oceany.Config;
 import oceany.damage.ModDamageSources;
-import oceany.libs.InventoryUtils;
-import oceany.libs.RotationUtils;
 
 public class TileOceanySquidoGen extends ModTileOceanyCoreDependant
 {

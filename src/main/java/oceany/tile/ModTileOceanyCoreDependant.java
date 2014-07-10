@@ -1,10 +1,10 @@
 package oceany.tile;
 
+import danylibs.libs.ItemUtils;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import oceany.blocks.ModBlocks;
-import oceany.libs.ItemUtils;
 
 public abstract class ModTileOceanyCoreDependant extends ModTileBase
 {

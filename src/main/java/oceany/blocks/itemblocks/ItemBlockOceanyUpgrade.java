@@ -2,9 +2,9 @@ package oceany.blocks.itemblocks;
 
 import java.util.List;
 
+import danylibs.libs.LocalizationHelper;
 import oceany.api.IOceanyBlock;
 import oceany.blocks.BlockOceanyUpgrade;
-import oceany.libs.LocalizationHelper;
 import mcp.mobius.waila.api.IWailaBlock;
 import mcp.mobius.waila.api.IWailaConfigHandler;
 import mcp.mobius.waila.api.IWailaDataAccessor;
