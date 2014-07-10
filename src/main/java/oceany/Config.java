@@ -43,40 +43,6 @@ public class Config
 		}
 	}
 	
-	@SubscribeEvent
-	public void onConfigChanged(OnConfigChangedEvent e)
-	{
-		if (e.modID.equals(Refs.MOD_ID))
-		{
-			setConfigVariables();
-			Oceany.logger.info("Configuration changed.");
-		}
-	}
-	
-	public static class ConfigGui extends GuiConfig
-	{
-		public static List<IConfigElement> configVariables = new ArrayList<IConfigElement>();
-		private static boolean preInitCompleted = false;
-		
-		public static void preInitConfigGUI()
-		{
-			if (!preInitCompleted)
-			{
-				Iterator<String> icatname = config.getCategoryNames().iterator();
-				while (icatname.hasNext())
-				{
-					configVariables.addAll(new ConfigElement(config.getCategory(icatname.next())).getChildElements());
-				}
-				preInitCompleted = true;
-			}
-		}
-		
-		public ConfigGui(GuiScreen screen)
-		{
-			super(screen, configVariables, Refs.MOD_ID, false, false, Refs.MOD_NAME);
-		}
-	}
-	
 	private static void addConfig(String name, String def, String comment)
 	{
 		int dotIndex = name.indexOf(".");

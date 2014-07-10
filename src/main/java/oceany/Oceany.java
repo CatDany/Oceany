@@ -36,7 +36,6 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 	name = Refs.MOD_NAME,
 	dependencies = Refs.DEPENDENCIES,
 	version = Refs.VERSION,
-	guiFactory = Refs.GUI_FACTORY_PATH,
 	certificateFingerprint = Refs.FINGERPRINT
 )
 public class Oceany

@@ -10,7 +10,6 @@ public class Refs
 		 // + "required-after:DanyFriends" + ";"
 			+ "required-after:Baubles@[1.0.0.16,)";
 	public static final String RESOURCE_LOCATION = MOD_ID.toLowerCase();
-	public static final String GUI_FACTORY_PATH = "oceany.GuiFactory";
 	public static final String FINGERPRINT = "%FINGERPRINT%";
 	public static final String VERSION_CHECKER_URL = "%VERSION_CHECKER_URL%";
 	public static final String DOWNLOAD_PAGE_URL = "http://mods.hoppix.ru/Oceany/download.html";
