@@ -20,7 +20,7 @@ public class TileOceanyInfuser extends ModTileOceanyCoreDependant implements ISi
 	
 	public double process;
 
-	@Deprecated // TODO Make Oceany Infuser 
+	@Deprecated // TODO Make Oceany Infuser eject stuff (now only manually)
 	public boolean isEjecting;
 	
 	private static final int sizeInventory = 2;
@@ -53,7 +53,7 @@ public class TileOceanyInfuser extends ModTileOceanyCoreDependant implements ISi
 							output = getOutputFromInput(inventory[0]);
 							output.stackSize--;
 						}
-						if (ItemUtils.compare(output, getOutputFromInput(inventory[0])))
+						if (ItemUtils.compare(output, getOutputFromInput(inventory[0])) && (getInventoryStackLimit() - inventory[1].stackSize) >= output.stackSize)
 						{
 							output.stackSize += getOutputFromInput(inventory[0]).stackSize;
 							decrStackSize(0, 1);

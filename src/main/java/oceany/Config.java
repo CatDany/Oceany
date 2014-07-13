@@ -36,6 +36,7 @@ public class Config
 		config.load();
 		
 		addConfig("settings.squidogen.energy_per_squid", 5000, null);
+		addConfig("world.enableGeneration.tentaclore", true, null);
 		
 		if (config.hasChanged())
 		{

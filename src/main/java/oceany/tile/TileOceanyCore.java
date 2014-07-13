@@ -250,6 +250,7 @@ public class TileOceanyCore extends ModTileBase
 	private void tickUpgrade(int id)
 	{
 		int usage = BlockOceanyUpgrade.energyUsage[id];
+		boolean useEnergyAfter = false;
 		
 		if (id == 0) // Breath in Depth
 		{
@@ -258,9 +259,10 @@ public class TileOceanyCore extends ModTileBase
 			{
 				for (Entity entity : list)
 				{
-					if (entity instanceof EntityLivingBase && !(entity instanceof EntityWaterMob) && entity.isInWater() && consumeEnergy(usage))
+					if (entity instanceof EntityLivingBase && !(entity instanceof EntityWaterMob) && entity.isInWater() && haveEnoughEnergy(usage))
 					{
 						((EntityLivingBase)entity).setAir(300);
+						useEnergyAfter = true;
 					}
 				}
 			}
@@ -272,9 +274,10 @@ public class TileOceanyCore extends ModTileBase
 			{
 				for (Entity entity : list)
 				{
-					if (entity instanceof EntityPlayer && entity.isInWater() && consumeEnergy(usage))
+					if (entity instanceof EntityPlayer && entity.isInWater() && haveEnoughEnergy(usage))
 					{
 						((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.nightVision.id, 20, 0, true));
+						useEnergyAfter = true;
 					}
 				}
 			}
@@ -290,9 +293,10 @@ public class TileOceanyCore extends ModTileBase
 			{
 				for (Entity entity : list)
 				{
-					if (entity instanceof EntityPlayer && entity.isInWater() && !((EntityPlayer)entity).capabilities.isCreativeMode && consumeEnergy(usage))
+					if (entity instanceof EntityPlayer && entity.isInWater() && !((EntityPlayer)entity).capabilities.isCreativeMode && haveEnoughEnergy(usage))
 					{
 						((EntityPlayer)entity).addPotionEffect(new PotionEffect(ModPotions.speed_of_squid.id, 8, 0, true));
+						useEnergyAfter = true;
 					}
 				}
 			}
@@ -310,6 +314,11 @@ public class TileOceanyCore extends ModTileBase
 		{
 			return false;
 		}
+	}
+	
+	public boolean haveEnoughEnergy(int energy)
+	{
+		return this.energy >= energy;
 	}
 	
 	public boolean giveEnergy(int energy)

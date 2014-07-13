@@ -12,7 +12,7 @@ public class ModAchievementPage extends AchievementPage
 		super(Refs.MOD_NAME, new Achievement[]{
 			tentacle, tentacle_bar, tentacle_block,
 			oceany_core, oceany_upgrade, oceany_infuser,
-			oceanic_cutlass
+			oceanic_cutlass, tentaclite
 			});
 	}
 	
@@ -23,4 +23,5 @@ public class ModAchievementPage extends AchievementPage
 	public static Achievement oceany_upgrade = new Achievement(Refs.MOD_ID + "5", "oceany_upgrade", -1, 2, ModBlocks.oceany_upgrade, oceany_core).registerStat();
 	public static Achievement oceany_infuser = new Achievement(Refs.MOD_ID + "6", "oceany_infuser", -1, -2, ModBlocks.oceany_infuser, oceany_core).registerStat();
 	public static Achievement oceanic_cutlass = new Achievement(Refs.MOD_ID + "7", "oceanic_cutlass", -1, -4, ModItems.oceanic_cutlass, oceany_infuser).registerStat();
+	public static Achievement tentaclite = new Achievement(Refs.MOD_ID + "8", "tentaclite", -3, -4, ModBlocks.tentaclite_ore, (Achievement)null).initIndependentStat().registerStat();
 }

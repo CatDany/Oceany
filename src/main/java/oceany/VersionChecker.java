@@ -34,7 +34,7 @@ public class VersionChecker extends TickHandler
 		File fileVersion = null;
 		try
 		{
-			String filepath = "%TMP%" + Refs.MOD_ID.toLowerCase() + "_versionchecker_" + new Random().nextInt(1000);
+			String filepath = "%TMP%\\" + Refs.MOD_ID.toLowerCase() + "_versionchecker_" + new Random().nextInt(1000);
 			fileVersion = new File(filepath);
 			if (Refs.VERSION_CHECKER_URL.equals("%" + "VERSION_CHECKER_URL" + "%"))
 			{
@@ -57,6 +57,7 @@ public class VersionChecker extends TickHandler
 			{
 				new_version = Files.readFirstLine(fileVersion, Charsets.UTF_8);
 				this.isUpdated = !new_version.equals(Refs.VERSION);
+				fileVersion.delete();
 			}
 			catch (Throwable t)
 			{

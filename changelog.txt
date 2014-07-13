@@ -1,5 +1,19 @@
-indev-70 (Not built):
+indev-71 (Not built):
 - Added textures to #allthethings
+
+indev-70:
+- Changed way Oceanic Cutlass getItemDamageForDisplay() works (it works now o.O)
+- Changed Oceanic Cutlass durability (in ToolMaterial) from 100 to 51
+- Added Oceany Chipset, Adv. Oceany Chipset, Oceany Core Connection Card, Biometric Identification Card
+- Added recipes for all kinds of new items and components except Biometric Identification Card
+- Added Tentaclite Ore
+- Added world generation (Tentaclite Ore) [detailed info: 5, 45, 14]
+- Added Oceany Infuser recipe: 1 Tentaclite Ore -> 2 Infused Tentacle Bars [energy cost: 1800]
+- Enhanced Oceany Infuser, now outputs can have more than 1 item
+- Adv. Oceany SquidoGen will now drop items if it's not able to put them to inventory below it
+- Changed Oceany Core, Oceany Infuser, Oceany SquidoGen, Adv. Oceany SquidoGen recipes
+- Fixed Version Checker temporary file a little bit
+- Upgrades are no more draining a lot of power if, for example, there are 5 players who need Night Vision effect
 
 indev-69:
 - Added Bottomless Bucket, recipe for it

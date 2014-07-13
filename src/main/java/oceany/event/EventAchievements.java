@@ -43,5 +43,7 @@ public class EventAchievements
 		
 		if ("squid_tentacle".equals(result) && oceany)
 			e.player.addStat(ModAchievementPage.tentacle, 1);
+		else if ("tentaclite_ore".equals(result) && oceany)
+			e.player.addStat(ModAchievementPage.tentaclite, 1);
 	}
 }

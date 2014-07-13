@@ -63,6 +63,7 @@ public class BlockOceanyUpgrade extends ModBlockBase implements IOceanyBlock
 	@Override
 	public boolean renderAsNormalBlock()
 	{
+		// TODO Make it render a little bit nicer, need to analyze Biomes O'Plenty water plants
 		return false;
 	}
 	

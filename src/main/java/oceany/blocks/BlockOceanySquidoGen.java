@@ -10,8 +10,9 @@ import net.minecraft.world.World;
 
 public class BlockOceanySquidoGen extends ModBlockContainerBase
 {
-	private IIcon icon_top;
+	@Deprecated
 	private IIcon icon_front;
+	private IIcon icon_top;
 	private boolean isAdvanced;
 	
 	public BlockOceanySquidoGen(boolean adv)
@@ -30,13 +31,21 @@ public class BlockOceanySquidoGen extends ModBlockContainerBase
 	{
 		blockIcon = IconRegHelper.regBlock(this, reg, isAdvanced ? "_adv_side" : "_side");
 		icon_top = IconRegHelper.regBlock(this, reg, isAdvanced ? "_adv_top" : "_top");
-		icon_front = IconRegHelper.regBlock(this, reg, isAdvanced ? "_adv_front" : "_front");
+		//icon_front = IconRegHelper.regBlock(this, reg, isAdvanced ? "_adv_front" : "_front");
 	}
 	
 	@Override
 	public IIcon getIcon(int side, int meta)
 	{
-		 return side == 1 ? icon_top : (side == 0 ? icon_top : (side != meta ? blockIcon : icon_front));
+		//return side == 1 ? icon_top : (side == 0 ? icon_top : (side != meta ? blockIcon : icon_front));
+		if (side == 0 || side == 1)
+		{
+			return icon_top;
+		}
+		else
+		{
+			return blockIcon;
+		}
 	}
 	
 	@Override

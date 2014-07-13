@@ -4,6 +4,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
@@ -17,8 +18,9 @@ import danylibs.libs.RotationUtils;
 
 public class BlockOceanyInfuser extends ModBlockContainerBase implements IOceanyBlock
 {
-	private IIcon icon_top;
+	@Deprecated
 	private IIcon icon_front;
+	private IIcon icon_top;
 	
 	public BlockOceanyInfuser()
 	{
@@ -35,13 +37,21 @@ public class BlockOceanyInfuser extends ModBlockContainerBase implements IOceany
 	{
 		blockIcon = IconRegHelper.regBlock(this, reg, "_side");
 		icon_top = IconRegHelper.regBlock(this, reg, "_top");
-		icon_front = IconRegHelper.regBlock(this, reg, "_front");
+		//icon_front = IconRegHelper.regBlock(this, reg, "_front");
 	}
 	
 	@Override
 	public IIcon getIcon(int side, int meta)
 	{
-		 return side == 1 ? icon_top : (side == 0 ? icon_top : (side != meta ? blockIcon : icon_front));
+		//return side == 1 ? icon_top : (side == 0 ? icon_top : (side != meta ? blockIcon : icon_front));
+		if (side == 0 || side == 1)
+		{
+			return icon_top;
+		}
+		else
+		{
+			return blockIcon;
+		}
 	}
 	
 	@Override

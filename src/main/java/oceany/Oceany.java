@@ -1,6 +1,8 @@
 package oceany;
 
+import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.AchievementPage;
+import net.minecraftforge.common.MinecraftForge;
 import oceany.blocks.ModBlocks;
 import oceany.command.CommandGC;
 import oceany.command.ModCommandBase;
@@ -13,6 +15,7 @@ import oceany.items.ModItems;
 import oceany.network.PacketHandler;
 import oceany.potion.ModPotions;
 import oceany.proxy.ProxyCommon;
+import oceany.world.GenHandler;
 
 import org.apache.logging.log4j.Logger;
 
@@ -27,6 +30,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 import danylibs.libs.EventBusHelper;
 import danylibs.libs.TickHandler;
 
@@ -85,7 +89,7 @@ public class Oceany
 		TickHandler.registerTickHandler(new VersionChecker());
 		
 		FMLInterModComms.sendMessage("Waila", "register", "oceany.compat.CompatWaila.register");
-		// WorldGenHandler.initWorldGeneration();
+		GameRegistry.registerWorldGenerator(new GenHandler(), 1);
 	}
 	
 	public void postInit(FMLPostInitializationEvent e)

@@ -7,6 +7,7 @@ import oceany.blocks.itemblocks.ItemBlockOceanyCore;
 import oceany.blocks.itemblocks.ItemBlockOceanyUpgrade;
 import oceany.blocks.itemblocks.ItemBlockSquidoGen;
 import oceany.blocks.itemblocks.ItemBlockTentacle;
+import oceany.blocks.itemblocks.ItemBlockTentaclite;
 import oceany.tile.TileOceanyCore;
 import oceany.tile.TileOceanyInfuser;
 import oceany.tile.TileOceanySquidoGen;
@@ -20,6 +21,7 @@ public class ModBlocks
 	public static Block oceany_squidogen;
 	public static Block advanced_oceany_squidogen;
 	public static Block tentacle_block;
+	public static Block tentaclite_ore;
 	
 	public static void initBlocks()
 	{
@@ -40,6 +42,9 @@ public class ModBlocks
 		
 		advanced_oceany_squidogen = new BlockOceanySquidoGen(true);
 		GameRegistry.registerBlock(advanced_oceany_squidogen, ItemBlockSquidoGen.class, "advanced_oceany_squidogen", true);
+		
+		tentaclite_ore = new BlockTentaclite();
+		GameRegistry.registerBlock(tentaclite_ore, ItemBlockTentaclite.class, "tentaclite_ore");
 		
 		initTileEntities();
 	}

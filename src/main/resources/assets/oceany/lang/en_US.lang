@@ -9,6 +9,7 @@ tile.oceany_squidogen.name=Oceany SquidoGen
 tile.advanced_oceany_squidogen.name=Advanced Oceany SquidoGen
 tile.tentacle_block|0.name=Tentacle Block
 tile.tentacle_block|1.name=Infused Tentacle Block
+tile.tentaclite_ore.name=Tentaclite Ore
 
 item.squid_tentacle|0.name=Squid Tentacle
 item.squid_tentacle|1.name=Infused Squid Tentacle
@@ -16,6 +17,10 @@ item.tentacle_bar|0.name=Tentacle Bar
 item.tentacle_bar|1.name=Infused Tentacle Bar
 item.oceanic_cutlass.name=Oceanic Cutlass
 item.bottomless_bucket.name=Bottomless Bucket
+item.oceany_chipset|0.name=Oceany Chipset
+item.oceany_chipset|1.name=Advanced Oceany Chipset
+item.oceany_chipset|2.name=Oceany Core Connection Card
+item.oceany_chipset|3.name=Biometric Identification Card
 
 itemGroup.oceany=Oceany Mod
 potion.speed_of_squid=Speed of Squid
@@ -65,4 +70,7 @@ achievement.oceany_infuser=Infusing with Tentacles
 achievement.oceany_infuser.desc=Craft an Oceany Infuser
 
 achievement.oceanic_cutlass=Y'ARR, CAPTAIN!
-achievement.oceanic_cutlass.desc=Craft an Oceanic Cutlass
+achievement.oceanic_cutlass.desc=Plundar da Marine Cutlass
+
+achievement.tentaclite=So, I don't need to kill a ton of squids anymore?
+achievement.tentaclite.desc=Mine Tentaclite Ore

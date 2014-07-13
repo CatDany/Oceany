@@ -112,6 +112,21 @@ public class Recipes
 				'g', ModBlocks.oceany_squidogen,
 				'h', Blocks.hopper);
 		
+		addOreRecipe(ModItems.oceany_chipset, 1, 0,
+				" t ", "tgt", " t ",
+				't', ModItems.tentacle_bar,
+				'g', Items.gold_ingot);
+		
+		addOreRecipe(ModItems.oceany_chipset, 1, 1,
+				" t ", "tdt", " t ",
+				't', new ItemStack(ModItems.tentacle_bar, 1, 1),
+				'd', Items.diamond);
+		
+		addOreRecipe(ModItems.oceany_chipset, 1, 2,
+				"ppp", "ccc", "ppp",
+				'p', Items.paper,
+				'c', new ItemStack(ModItems.oceany_chipset, 1, 0));
+		
 		//--- Mod Recipes ---//
 		InfuserRecipeManager.instance().addRecipe(
 				new ItemStack(ModItems.squid_tentacle, 1, 0),
@@ -129,6 +144,12 @@ public class Recipes
 				new ItemStack(ModBlocks.tentacle_block, 1, 0),
 				new ItemStack(ModBlocks.tentacle_block, 1, 1),
 				8100
+				);
+		
+		InfuserRecipeManager.instance().addRecipe(
+				new ItemStack(ModBlocks.tentaclite_ore),
+				new ItemStack(ModItems.tentacle_bar),
+				1800
 				);
 	}
 	

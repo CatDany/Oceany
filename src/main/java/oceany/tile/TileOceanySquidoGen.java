@@ -1,5 +1,6 @@
 package oceany.tile;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import danylibs.libs.InventoryUtils;
@@ -60,18 +61,38 @@ public class TileOceanySquidoGen extends ModTileOceanyCoreDependant
 	
 	public void handleDrops(List<EntityItem> drops)
 	{
+		List<ItemStack> toDrop = new ArrayList<ItemStack>();
 		if (worldObj.getTileEntity(xCoord, yCoord - 1, zCoord) instanceof IInventory)
 		{
 			TileEntity tile = worldObj.getTileEntity(xCoord, yCoord - 1, zCoord);
 			IInventory tileInv = (IInventory)tile;
-			for (EntityItem i : drops)
+			for (int i = 0; i < drops.size(); i++)
 			{
-				ItemStack item = i.getEntityItem();
+				ItemStack item = drops.get(i).getEntityItem();
 				if (InventoryUtils.canInsert(tile, item, RotationUtils.getSideIDFromDirection(ForgeDirection.UP), false))
 				{
 					InventoryUtils.putStackInInventory(tileInv, item, RotationUtils.getSideIDFromDirection(ForgeDirection.UP), false);
 				}
+				else
+				{
+					toDrop.add(item);
+				}
 			}
+		}
+		else
+		{
+			for (EntityItem item : drops)
+			{
+				toDrop.add(item.getEntityItem());
+			}
+		}
+		for (ItemStack item : toDrop)
+		{
+			System.out.println("puf -> " + item.getUnlocalizedName());
+			EntityItem itemEntity = new EntityItem(worldObj, xCoord + 0.5, yCoord + 1.5, zCoord + 0.5, item);
+			itemEntity.addVelocity(0, worldObj.rand.nextDouble() * 0.2, 0);
+			itemEntity.delayBeforeCanPickup = 20;
+			worldObj.spawnEntityInWorld(itemEntity);
 		}
 	}
 	

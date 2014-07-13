@@ -28,7 +28,7 @@ import danylibs.libs.SoundHelper;
 
 public class ItemCutlass extends ItemSword
 {
-	private static final ToolMaterial mat = EnumHelper.addToolMaterial(Refs.MOD_ID + ":Cutlass", 0, 100, 1.0F, -4.0F, 20);
+	private static final ToolMaterial mat = EnumHelper.addToolMaterial(Refs.MOD_ID + ":Cutlass", 0, 51, 1.0F, -4.0F, 20);
 	
 	public ItemCutlass()
 	{
@@ -72,7 +72,7 @@ public class ItemCutlass extends ItemSword
 			World world, int x, int y, int z, int side,
 			float hitX, float hitY, float hitZ)
 	{
-		if (!world.isRemote && world.getTileEntity(x, y, z) instanceof TileOceanyCore)
+		if (!world.isRemote && world.getTileEntity(x, y, z) instanceof TileOceanyCore && player.isSneaking())
 		{
 			TileOceanyCore tile = (TileOceanyCore)world.getTileEntity(x, y, z);
 			
@@ -133,12 +133,11 @@ public class ItemCutlass extends ItemSword
 		return false;
 	}
 	
-	@Override
-	public double getDurabilityForDisplay(ItemStack stack)
+	private void updateItemDamage(ItemStack stack)
 	{
 		if (stack.getTagCompound() == null || !stack.getTagCompound().hasKey("Energy"))
 		{
-			return 0.01F;
+			stack.setItemDamage(51);
 		}
 		else
 		{
@@ -147,9 +146,16 @@ public class ItemCutlass extends ItemSword
 			
 			if (currentEnergy >= maxEnergy)
 			{
-				return 0.99999999999999999999999999F;
+				stack.setItemDamage(1);
 			}
-			return currentEnergy / maxEnergy;
+			else if (currentEnergy == 0)
+			{
+				stack.setItemDamage(51);
+			}
+			else
+			{
+				stack.setItemDamage((int)(51 - (currentEnergy / maxEnergy * 50)));
+			}
 		}
 	}
 	
@@ -161,9 +167,11 @@ public class ItemCutlass extends ItemSword
 		NBTTagCompound tag = new NBTTagCompound();
 		tag.setInteger("Energy", 0);
 		stackEmpty.setTagCompound(tag);
+		stackEmpty.setItemDamage(51);
 		tag = new NBTTagCompound();
 		tag.setInteger("Energy", 50000);
 		stackFull.setTagCompound(tag);
+		stackFull.setItemDamage(1);
 		list.add(stackEmpty);
 		list.add(stackFull);
 	}
@@ -178,16 +186,17 @@ public class ItemCutlass extends ItemSword
 			stack.setTagCompound(tag);
 		}
 		int energy = stack.getTagCompound().getInteger("Energy");
-		int perHit = 200; // 50000/200=250
+		int perHit = 100; // 50000/100=500 hits total (x2 durability of an iron sword)
 		if (energy < perHit)
 		{
-			return true;
+			// ???
 		}
 		else
 		{
 			stack.getTagCompound().setInteger("Energy", energy - perHit);
 			target.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer)source), 6);
-			return true;
 		}
+		updateItemDamage(stack);
+		return true;
 	}
 }
