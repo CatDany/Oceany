@@ -26,7 +26,7 @@ group= "oceany"	// http://maven.apache.org/guides/mini/guide-naming-conventions.
 archivesBaseName = "Oceany"
 
 minecraft {
-    version = "1.7.10-10.13.0.1177"
+    version = "1.7.2-10.12.2.1147"
     assetDir = "eclipse/assets"
 	
 	replace '%MOD_VERSION%', project.version
@@ -63,17 +63,18 @@ processResources
 	}
 }
 
-// add source jar
 task sourceJar(type: Jar) {
-    from sourceSets.main.allSource
+    from (sourceSets.main.allSource) {
+		include 'oceany/**'
+	}
     classifier = 'source'
 }
 
-// deobf jars
 task deobfJar(type: Jar) {
-    from sourceSets.main.output
+    from (sourceSets.main.output) {
+		include 'oceany/**'
+	}
     classifier = 'deobf'
 }
 
-// make sure all of these happen when we run build
 build.dependsOn sourceJar, deobfJar
