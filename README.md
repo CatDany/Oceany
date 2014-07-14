@@ -29,7 +29,7 @@ That means that you are **not** allowed to copy, modify or redistribute Oceany m
 or its source code. I put it on GitHub for convenience, so you can see my code,
 learn from it and maybe see what's wrong when your Minecraft crashes.
 
-Questions And Answers Ocurred In My Head When I Was Trying To Do Something Like FAQ (QASOIMHWIWTTDSLFAQ)
+Questions and Answers (RQAA)
 ======
 **Can I download a source code of your mod, modify it, compile and play?**
 - No, you can't. I mean, physically you can but if you break the rules, I'll break them too.
