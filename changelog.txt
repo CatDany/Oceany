@@ -2,6 +2,7 @@ indev-72 (Not built):
 - Added textures to #allthethings
 
 indev-71:
+- Backported to 1.7.2 (waiting for Baubles to update)
 - Fixed Oceany Upgrades (they now use energy O.o)
 - Added Pretty Oceany Chipset
 - Changed Oceany Core, Oceany Infuser, Oceany SquidoGen, Adv. Oceany SquidoGen, Oceany Upgrades recipes
