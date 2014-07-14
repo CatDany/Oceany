@@ -56,34 +56,37 @@ public class Recipes
 				);
 		
 		addOreRecipe(ModBlocks.oceany_core, 1, 0,
-				"igi", "gtg", "igi",
-				'i', Items.gold_ingot,
+				"cgc", "gtg", "cgc",
+				'c', new ItemStack(ModItems.oceany_chipset),
 				'g', Items.glowstone_dust,
 				't', "blockSquidTentacle"
 				);
 		
 		addOreRecipe(ModBlocks.oceany_upgrade, 1, 0,
-				"t t", "tpt", "t t",
+				"tct", "tpt", "tct",
 				't', "ingotSquidTentacle",
-				'p', new ItemStack(Items.potionitem, 1, 8205)
+				'p', new ItemStack(Items.potionitem, 1, 8205),
+				'c', new ItemStack(ModItems.oceany_chipset)
 				);
 		
 		addOreRecipe(ModBlocks.oceany_upgrade, 1, 1,
-				"t t", "tpt", "t t",
+				"tct", "tpt", "tct",
 				't', "ingotSquidTentacle",
-				'p', new ItemStack(Items.potionitem, 1, 8198)
+				'p', new ItemStack(Items.potionitem, 1, 8198),
+				'c', new ItemStack(ModItems.oceany_chipset)
 				);
 		
 		addOreRecipe(ModBlocks.oceany_upgrade, 1, 3,
-				"t t", "tpt", "t t",
+				"tct", "tpt", "tct",
 				't', "ingotInfusedSquidTentacle",
-				'p', new ItemStack(Items.potionitem, 1, 8194)
+				'p', new ItemStack(Items.potionitem, 1, 8194),
+				'c', new ItemStack(ModItems.oceany_chipset, 1, 1)
 				);
 		
 		addOreRecipe(ModBlocks.oceany_infuser, 1, 0,
-				"opo", "ete", "obo",
+				"opo", "ctc", "obo",
 				'o', Blocks.obsidian,
-				'e', Items.emerald,
+				'c', new ItemStack(ModItems.oceany_chipset, 1, 4),
 				't', "blockSquidTentacle",
 				'p', Items.blaze_powder,
 				'b', Items.brewing_stand);
@@ -99,33 +102,39 @@ public class Recipes
 				'b', Blocks.iron_bars);
 		
 		addOreRecipe(ModBlocks.oceany_squidogen, 1, 0,
-				"isi", "dtd", "iTi",
+				"isi", "dtd", "ici",
 				'i', new ItemStack(Items.dye),
 				's', Items.golden_sword,
 				'd', Items.diamond,
 				't', "blockSquidTentacle",
-				'T', "ingotSquidTentacle");
+				'c', new ItemStack(ModItems.oceany_chipset));
 		
 		addOreRecipe(ModBlocks.advanced_oceany_squidogen, 1, 0,
-				"t", "g", "h",
+				" t ", "cgc", " h ",
 				't', "blockInfusedSquidTentacle",
 				'g', ModBlocks.oceany_squidogen,
-				'h', Blocks.hopper);
+				'h', Blocks.hopper,
+				'c', new ItemStack(ModItems.oceany_chipset, 1, 1));
 		
 		addOreRecipe(ModItems.oceany_chipset, 1, 0,
 				" t ", "tgt", " t ",
-				't', ModItems.tentacle_bar,
+				't', "ingotSquidTentacle",
 				'g', Items.gold_ingot);
 		
 		addOreRecipe(ModItems.oceany_chipset, 1, 1,
 				" t ", "tdt", " t ",
-				't', new ItemStack(ModItems.tentacle_bar, 1, 1),
+				't', "ingotInfusedSquidTentacle",
 				'd', Items.diamond);
 		
 		addOreRecipe(ModItems.oceany_chipset, 1, 2,
 				"ppp", "ccc", "ppp",
 				'p', Items.paper,
 				'c', new ItemStack(ModItems.oceany_chipset, 1, 0));
+		
+		addOreRecipe(ModItems.oceany_chipset, 1, 4,
+				" t ", "tdt", " t ",
+				't', "ingotSquidTentacle",
+				'd', Items.emerald);
 		
 		//--- Mod Recipes ---//
 		InfuserRecipeManager.instance().addRecipe(

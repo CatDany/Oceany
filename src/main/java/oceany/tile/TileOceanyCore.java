@@ -301,6 +301,11 @@ public class TileOceanyCore extends ModTileBase
 				}
 			}
 		}
+		
+		if (useEnergyAfter)
+		{
+			consumeEnergy(usage);
+		}
 	}
 	
 	public boolean consumeEnergy(int energy)

@@ -1,5 +1,13 @@
-indev-71 (Not built):
+indev-72 (Not built):
 - Added textures to #allthethings
+
+indev-71:
+- Fixed Oceany Upgrades (they now use energy O.o)
+- Added Pretty Oceany Chipset
+- Changed Oceany Core, Oceany Infuser, Oceany SquidoGen, Adv. Oceany SquidoGen, Oceany Upgrades recipes
+- Fixed some recipes
+- Squids now drop 3-5 tentacles each instead of 0-2 #CASUALMODE #MODINCASUALMODE
+- Fixed Bottomless Bucket (constructors with weird unjavadoc'd parameters in them are jerks)
 
 indev-70:
 - Changed way Oceanic Cutlass getItemDamageForDisplay() works (it works now o.O)
@@ -11,7 +19,6 @@ indev-70:
 - Added Oceany Infuser recipe: 1 Tentaclite Ore -> 2 Infused Tentacle Bars [energy cost: 1800]
 - Enhanced Oceany Infuser, now outputs can have more than 1 item
 - Adv. Oceany SquidoGen will now drop items if it's not able to put them to inventory below it
-- Changed Oceany Core, Oceany Infuser, Oceany SquidoGen, Adv. Oceany SquidoGen recipes
 - Fixed Version Checker temporary file a little bit
 - Upgrades are no more draining a lot of power if, for example, there are 5 players who need Night Vision effect
 

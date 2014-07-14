@@ -34,47 +34,50 @@ public class CompatWaila implements IWailaDataProvider
 	public List<String> getWailaBody(ItemStack stack, List<String> list,
 			IWailaDataAccessor data, IWailaConfigHandler config)
 	{
-		if (ItemUtils.compare(data.getBlock(), ModBlocks.oceany_upgrade))
+		if (config.getConfig(Refs.MOD_ID.toLowerCase() + "." + "show_info"))
 		{
-			((ItemBlockOceanyUpgrade)Item.getItemFromBlock(ModBlocks.oceany_upgrade)).addInformation(data.getStack(), data.getPlayer(), list, false);
-		}
-		if (data.getTileEntity() instanceof TileOceanyCore)
-		{
-			TileOceanyCore tile = (TileOceanyCore)data.getTileEntity();
-			list.add(LocalizationHelper.get("info.waila.oceany_core.tier") + " : " + tile.tier);
-			list.add(LocalizationHelper.get("info.waila.oceany_core.energy") + " : " + tile.energy);
-			list.add(LocalizationHelper.get("info.waila.oceany_core.perTick") + " : " + tile.getEnergyPerTick());
-		}
-		if (data.getTileEntity() instanceof TileOceanyInfuser)
-		{
-			TileOceanyInfuser tile = (TileOceanyInfuser)data.getTileEntity();
-			if (!tile.isCoreValid())
+			if (ItemUtils.compare(data.getBlock(), ModBlocks.oceany_upgrade))
 			{
-				list.add(Paragraph.rose + LocalizationHelper.get("info.oceany_infuser.core_not_found"));
+				((ItemBlockOceanyUpgrade)Item.getItemFromBlock(ModBlocks.oceany_upgrade)).addInformation(data.getStack(), data.getPlayer(), list, false);
 			}
-			else if (tile.getStackInSlot(0) != null && tile.isCoreValid())				
+			if (data.getTileEntity() instanceof TileOceanyCore)
 			{
-				list.add(LocalizationHelper.get("info.waila.oceany_infuser.process") + " : " + Paragraph.light_green + (int)tile.process + "%");
-				list.add("");
-				list.add(LocalizationHelper.get("info.waila.oceany_infuser.input") + " : " + Paragraph.cyan + LocalizationHelper.get(tile.getStackInSlot(0).getUnlocalizedName() + ".name"));
-				list.add(LocalizationHelper.get("info.waila.oceany_infuser.output") + " : " + Paragraph.dark_purple + LocalizationHelper.get(tile.getOutputFromInput(tile.getStackInSlot(0)).getUnlocalizedName() + ".name"));
-				list.add(LocalizationHelper.get("info.waila.oceany_infuser.cost") + " : " + Paragraph.gold + (int)(tile.getEnergyCostFromInput(tile.inventory[0]) - (tile.process / 100 * tile.getEnergyCostFromInput(tile.inventory[0]))));
+				TileOceanyCore tile = (TileOceanyCore)data.getTileEntity();
+				list.add(LocalizationHelper.get("info.waila.oceany_core.tier") + " : " + tile.tier);
+				list.add(LocalizationHelper.get("info.waila.oceany_core.energy") + " : " + tile.energy);
+				list.add(LocalizationHelper.get("info.waila.oceany_core.perTick") + " : " + tile.getEnergyPerTick());
 			}
-			else if (tile.getStackInSlot(0) == null && tile.getStackInSlot(1) != null)
+			if (data.getTileEntity() instanceof TileOceanyInfuser)
 			{
-				list.add(Paragraph.green + LocalizationHelper.get("info.waila.oceany_infuser.done"));
+				TileOceanyInfuser tile = (TileOceanyInfuser)data.getTileEntity();
+				if (!tile.isCoreValid())
+				{
+					list.add(Paragraph.rose + LocalizationHelper.get("info.oceany_infuser.core_not_found"));
+				}
+				else if (tile.getStackInSlot(0) != null && tile.isCoreValid())				
+				{
+					list.add(LocalizationHelper.get("info.waila.oceany_infuser.process") + " : " + Paragraph.light_green + (int)tile.process + "%");
+					list.add("");
+					list.add(LocalizationHelper.get("info.waila.oceany_infuser.input") + " : " + Paragraph.cyan + LocalizationHelper.get(tile.getStackInSlot(0).getUnlocalizedName() + ".name"));
+					list.add(LocalizationHelper.get("info.waila.oceany_infuser.output") + " : " + Paragraph.dark_purple + LocalizationHelper.get(tile.getOutputFromInput(tile.getStackInSlot(0)).getUnlocalizedName() + ".name"));
+					list.add(LocalizationHelper.get("info.waila.oceany_infuser.cost") + " : " + Paragraph.gold + (int)(tile.getEnergyCostFromInput(tile.inventory[0]) - (tile.process / 100 * tile.getEnergyCostFromInput(tile.inventory[0]))));
+				}
+				else if (tile.getStackInSlot(0) == null && tile.getStackInSlot(1) != null)
+				{
+					list.add(Paragraph.green + LocalizationHelper.get("info.waila.oceany_infuser.done"));
+				}
 			}
-		}
-		if (data.getTileEntity() instanceof TileOceanySquidoGen)
-		{
-			TileOceanySquidoGen tile = (TileOceanySquidoGen)data.getTileEntity();
-			if (tile.isCoreValid())
+			if (data.getTileEntity() instanceof TileOceanySquidoGen)
 			{
-				list.add(Paragraph.green + LocalizationHelper.get("info.oceany_infuser.connected_to_core"));
-			}
-			else
-			{
-				list.add(Paragraph.rose + LocalizationHelper.get("info.oceany_infuser.core_not_found"));
+				TileOceanySquidoGen tile = (TileOceanySquidoGen)data.getTileEntity();
+				if (tile.isCoreValid())
+				{
+					list.add(Paragraph.green + LocalizationHelper.get("info.oceany_infuser.connected_to_core"));
+				}
+				else
+				{
+					list.add(Paragraph.rose + LocalizationHelper.get("info.oceany_infuser.core_not_found"));
+				}
 			}
 		}
 		return list;

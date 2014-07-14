@@ -20,13 +20,10 @@ public class EventSquidDrops
 		if (e.entityLiving instanceof EntitySquid)
 		{
 			Random random = e.entityLiving.worldObj.rand;
-			int RNGHit = random.nextInt(3);
-			if (RNGHit > 0)
-			{
-				ItemStack stack = new ItemStack(ModItems.squid_tentacle, RNGHit);
-				EntityItem item = new EntityItem(e.entityLiving.worldObj, e.entityLiving.posX, e.entityLiving.posY + (e.entityLiving.height / 2), e.entityLiving.posZ, stack);
-				e.drops.add(item);
-			}
+			int RNGHit = 3 + random.nextInt(3);
+			ItemStack stack = new ItemStack(ModItems.squid_tentacle, RNGHit);
+			EntityItem item = new EntityItem(e.entityLiving.worldObj, e.entityLiving.posX, e.entityLiving.posY + (e.entityLiving.height / 2), e.entityLiving.posZ, stack);
+			e.drops.add(item);
 			
 			if (e.source.getDamageType().equals(ModDamageSources.squidogen.getDamageType()))
 			{

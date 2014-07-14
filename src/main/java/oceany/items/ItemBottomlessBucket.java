@@ -29,7 +29,7 @@ public class ItemBottomlessBucket extends ModItemBase
 	public ItemStack onItemRightClick(ItemStack stack, World world,
 			EntityPlayer player)
 	{
-		MovingObjectPosition obj = getMovingObjectPositionFromPlayer(world, player, false);
+		MovingObjectPosition obj = getMovingObjectPositionFromPlayer(world, player, true);
 		if (obj != null && obj.typeOfHit == MovingObjectType.BLOCK)
 		{
 			if (world.canMineBlock(player, obj.blockX, obj.blockY, obj.blockZ)

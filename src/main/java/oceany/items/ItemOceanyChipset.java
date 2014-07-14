@@ -23,10 +23,11 @@ public class ItemOceanyChipset extends ModItemBase
 	 * 1 = Advanced Oceany Chipset,
 	 * 2 = Oceany Core Connection Card,
 	 * 3 = Biometric Identification Card
+	 * 4 = Pretty Oceany Chipset TODO Planned: make Pretty Oceany Chipset a villager's trade
 	 * 101 = Biometric Identification Card (Bound)
 	 */
 	private IIcon[] icons = new IIcon[256];
-	public static int subItems = 4;
+	public static int subItems = 5;
 	
 	public ItemOceanyChipset()
 	{
@@ -42,6 +43,7 @@ public class ItemOceanyChipset extends ModItemBase
 		icons[1] = IconRegHelper.regItem(this, reg, "_adv");
 		icons[2] = IconRegHelper.regItem(this, reg, "_cc");
 		icons[3] = IconRegHelper.regItem(this, reg, "_bio");
+		icons[4] = IconRegHelper.regItem(this, reg, "_pretty");
 		icons[101] = IconRegHelper.regItem(this, reg, "_biobound");
 	}
 	
@@ -86,6 +88,7 @@ public class ItemOceanyChipset extends ModItemBase
 		{
 		case 0:
 		case 1:
+		case 4:
 			list.add("Crafting Item");
 			break;
 		case 2:
@@ -124,7 +127,7 @@ public class ItemOceanyChipset extends ModItemBase
 				// Hey, Dear GitHuber. If you're sure that this will work, please leave a comment
 				// Otherwise create a pull request with the right way to do it
 				// I owe you a credit! ;)
-				MovingObjectPosition obj = getMovingObjectPositionFromPlayer(world, player, true);
+				MovingObjectPosition obj = getMovingObjectPositionFromPlayer(world, player, false);
 				if (obj != null && obj.typeOfHit == MovingObjectType.ENTITY && obj.entityHit instanceof EntityPlayer)
 				{
 					EntityPlayer target = (EntityPlayer)obj.entityHit;

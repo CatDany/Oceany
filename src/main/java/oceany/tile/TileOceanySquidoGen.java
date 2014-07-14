@@ -88,7 +88,6 @@ public class TileOceanySquidoGen extends ModTileOceanyCoreDependant
 		}
 		for (ItemStack item : toDrop)
 		{
-			System.out.println("puf -> " + item.getUnlocalizedName());
 			EntityItem itemEntity = new EntityItem(worldObj, xCoord + 0.5, yCoord + 1.5, zCoord + 0.5, item);
 			itemEntity.addVelocity(0, worldObj.rand.nextDouble() * 0.2, 0);
 			itemEntity.delayBeforeCanPickup = 20;

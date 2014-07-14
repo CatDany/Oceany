@@ -19,8 +19,9 @@ item.oceanic_cutlass.name=Oceanic Cutlass
 item.bottomless_bucket.name=Bottomless Bucket
 item.oceany_chipset|0.name=Oceany Chipset
 item.oceany_chipset|1.name=Advanced Oceany Chipset
-item.oceany_chipset|2.name=Oceany Core Connection Card
-item.oceany_chipset|3.name=Biometric Identification Card
+item.oceany_chipset|2.name=Pretty Oceany Chipset
+item.oceany_chipset|3.name=Oceany Core Connection Card
+item.oceany_chipset|4.name=Biometric Identification Card
 
 itemGroup.oceany=Oceany Mod
 potion.speed_of_squid=Speed of Squid
