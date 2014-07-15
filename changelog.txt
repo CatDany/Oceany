@@ -1,5 +1,8 @@
-indev-72 (Not built):
+indev-73 (Not built):
 - Added textures to #allthethings
+
+indev-72:
+- Added recipe list for Oceany Infuser
 
 indev-71:
 - Backported to 1.7.2 (waiting for Baubles to update)

@@ -35,12 +35,13 @@ public class GuiOceanyInfuser extends GuiContainer
 		mc.renderEngine.bindTexture(texture);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		
-		String strCoreStatus = tile.isCoreValid() ? LocalizationHelper.get("info.oceany_infuser.connected_to_core") : LocalizationHelper.get("info.oceany_infuser.core_not_found");
 		String strProcess = (int)(tile.process) + "%";
+		String strCoreStatus = tile.isCoreValid() ? LocalizationHelper.get("info.oceany_infuser.connected_to_core") : LocalizationHelper.get("info.oceany_infuser.core_not_found");
 		drawCenteredString(mc.fontRenderer, strProcess, guiLeft + xSize / 2, guiTop + 45, 0xffffff);
+
 		drawCenteredString(mc.fontRenderer, strCoreStatus, guiLeft + xSize / 2, guiTop + 25, tile.isCoreValid() ? 0xffffff : 0xff3333);
 		if (tile.inventory[0] != null)
-		{
+		{			
 			String strCost = LocalizationHelper.get("info.oceany_infuser.cost", (int)(tile.getEnergyCostFromInput(tile.inventory[0]) - (tile.process / 100 * tile.getEnergyCostFromInput(tile.inventory[0]))));
 			drawCenteredString(mc.fontRenderer, strCost, guiLeft + xSize / 2, guiTop + 65, 0xffffff);
 		}

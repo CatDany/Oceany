@@ -47,13 +47,13 @@ public class TileOceanyInfuser extends ModTileOceanyCoreDependant implements ISi
 					}
 					else
 					{
-						ItemStack output = inventory[1];
+						ItemStack output = inventory[1].copy();
 						if (output == null)
 						{
 							output = getOutputFromInput(inventory[0]);
 							output.stackSize--;
 						}
-						if (ItemUtils.compare(output, getOutputFromInput(inventory[0])) && (getInventoryStackLimit() - inventory[1].stackSize) >= output.stackSize)
+						if (ItemUtils.compare(output, getOutputFromInput(inventory[0])) && (getInventoryStackLimit() - (inventory[1] == null ? 0 : inventory[1].stackSize)) >= output.stackSize)
 						{
 							output.stackSize += getOutputFromInput(inventory[0]).stackSize;
 							decrStackSize(0, 1);

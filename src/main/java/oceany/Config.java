@@ -4,13 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;
-import cpw.mods.fml.client.IModGuiFactory;
 import cpw.mods.fml.client.config.GuiConfig;
 import cpw.mods.fml.client.config.IConfigElement;
 import cpw.mods.fml.client.event.ConfigChangedEvent.OnConfigChangedEvent;
@@ -36,7 +33,8 @@ public class Config
 		config.load();
 		
 		addConfig("settings.squidogen.energy_per_squid", 5000, null);
-		addConfig("world.enableGeneration.tentaclore", true, null);
+		addConfig("world.enableGeneration.tentaclite_ore", true, null);
+		addConfig("world.enableDungeonLoot.pretty_oceany_chipset", true, "If false, a recipe for it will be added");
 		
 		if (config.hasChanged())
 		{

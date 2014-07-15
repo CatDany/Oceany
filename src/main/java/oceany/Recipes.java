@@ -127,14 +127,15 @@ public class Recipes
 				'd', Items.diamond);
 		
 		addOreRecipe(ModItems.oceany_chipset, 1, 2,
-				"ppp", "ccc", "ppp",
-				'p', Items.paper,
-				'c', new ItemStack(ModItems.oceany_chipset, 1, 0));
-		
-		addOreRecipe(ModItems.oceany_chipset, 1, 4,
 				" t ", "tdt", " t ",
 				't', "ingotSquidTentacle",
 				'd', Items.emerald);
+		
+		if (!Config.getBoolean("world.enableDungeonLoot.pretty_oceany_chipset"))
+		addOreRecipe(ModItems.oceany_chipset, 1, 3,
+				"ppp", "ccc", "ppp",
+				'p', Items.paper,
+				'c', new ItemStack(ModItems.oceany_chipset, 1, 0));
 		
 		//--- Mod Recipes ---//
 		InfuserRecipeManager.instance().addRecipe(
@@ -157,7 +158,7 @@ public class Recipes
 		
 		InfuserRecipeManager.instance().addRecipe(
 				new ItemStack(ModBlocks.tentaclite_ore),
-				new ItemStack(ModItems.tentacle_bar),
+				new ItemStack(ModItems.tentacle_bar, 1, 1),
 				1800
 				);
 	}

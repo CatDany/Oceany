@@ -60,6 +60,7 @@ processResources
     }
 	from('D:\\Box\\_DanyCode\\Minecraft\\1.7\\Oceany') {
 		include 'changelog.txt'
+		include 'LICENSE'
 	}
 }
 

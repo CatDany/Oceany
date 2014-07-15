@@ -53,9 +53,30 @@ public abstract class ModTileOceanyCoreDependant extends ModTileBase
 	
 	public ModTileOceanyCoreDependant()
 	{
-		coreX = (int)(Long.MAX_VALUE * 2);
-		coreY = (int)(Long.MAX_VALUE * 2);
-		coreZ = (int)(Long.MAX_VALUE * 2);
+		coreX = (int)(Integer.MAX_VALUE * 2);
+		coreY = (int)(Integer.MAX_VALUE * 2);
+		coreZ = (int)(Integer.MAX_VALUE * 2);
+	}
+	
+	@Override
+	public void readFromNBT(NBTTagCompound tag)
+	{
+		super.readFromNBT(tag);
+		NBTTagCompound coreData = tag.getCompoundTag("CoreData");
+		coreX = coreData.getInteger("x");
+		coreY = coreData.getInteger("y");
+		coreZ = coreData.getInteger("z");
+	}
+	
+	@Override
+	public void writeToNBT(NBTTagCompound tag)
+	{
+		super.writeToNBT(tag);
+		NBTTagCompound coreData = new NBTTagCompound();
+		coreData.setInteger("x", coreX);
+		coreData.setInteger("y", coreY);
+		coreData.setInteger("z", coreZ);
+		tag.setTag("CoreData", coreData);
 	}
 	
 	public int[] getCore()
@@ -69,7 +90,7 @@ public abstract class ModTileOceanyCoreDependant extends ModTileBase
 		else if (ItemUtils.compare(worldObj.getBlock(xCoord, yCoord, zCoord + distanceFromCore), ModBlocks.oceany_core))
 			return new int[] {xCoord, yCoord, zCoord + distanceFromCore};
 		
-		return new int[] {(int)(Long.MAX_VALUE * 2), (int)(Long.MAX_VALUE * 2), (int)(Long.MAX_VALUE * 2)};
+		return new int[] {(int)(Integer.MAX_VALUE * 2), (int)(Integer.MAX_VALUE * 2), (int)(Integer.MAX_VALUE * 2)};
 	}
 	
 	public int[] getFoundCore()
@@ -79,7 +100,7 @@ public abstract class ModTileOceanyCoreDependant extends ModTileBase
 	
 	public boolean isCoreValid()
 	{
-		return !(coreX == Long.MAX_VALUE * 2 || coreY == Long.MAX_VALUE * 2 || coreZ == Long.MAX_VALUE * 2) && worldObj.getTileEntity(coreX, coreY, coreZ) instanceof TileOceanyCore;
+		return !(coreX == Integer.MAX_VALUE * 2 || coreY == Integer.MAX_VALUE * 2 || coreZ == Integer.MAX_VALUE * 2) && worldObj.getTileEntity(coreX, coreY, coreZ) instanceof TileOceanyCore;
 	}
 	
 	enum TETickType
@@ -89,11 +110,11 @@ public abstract class ModTileOceanyCoreDependant extends ModTileBase
 		 */
 		CORE_DEPENDANT,
 		/**
-		 * Calls before CORE_DEPENDANT anyway
+		 * Always calls before CORE_DEPENDANT
 		 */
 		BEFORE_DEPENDANT,
 		/**
-		 * Calls after CORE_DEPENDANT anyway
+		 * Always calls after CORE_DEPENDANT anyway
 		 */
 		AFTER_DEPENDANT;
 	}

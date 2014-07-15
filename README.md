@@ -21,7 +21,7 @@ guides, tutorials, reviews you made, for example YouTube videos.
 
 License
 ======
-This mod is under No License license.
+This mod is under "No License" license.
 
 Copyright © 2014 Dany Valkoff
 
@@ -45,7 +45,7 @@ contributors and to the credits of my mod. By the way you can check [**credits h
 
 **Ha-ha-ha. I'm baad, I'm going to download your source code, recompile it and even MODIFY!!!**
 - If you're breaking the rules, I'll break the rules too. I highly recommend you **not to do it**,
-because it can cause some bad aftermath.
+because it can cause some bad consequences.
 
 **I enjoy making textures and models for Minecraft. I would like to make textures/models for your mod because yours are shit**
 - Oh man. If you're going to make Oceany blocks, items or whatever look nice than you will be in the list

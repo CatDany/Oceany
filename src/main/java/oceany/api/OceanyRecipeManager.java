@@ -11,8 +11,8 @@ public class OceanyRecipeManager
 {
 	public static class InfuserRecipeManager implements IRecipeManager
 	{
-		private static final HashMap<ItemStack, ItemStack> recipes = new HashMap<ItemStack, ItemStack>();
-		private static final HashMap<ItemStack, Integer> energies = new HashMap<ItemStack, Integer>();
+		private final HashMap<ItemStack, ItemStack> recipes = new HashMap<ItemStack, ItemStack>();
+		private final HashMap<ItemStack, Integer> energies = new HashMap<ItemStack, Integer>();
 		
 		private static final InfuserRecipeManager instance = new InfuserRecipeManager();
 		

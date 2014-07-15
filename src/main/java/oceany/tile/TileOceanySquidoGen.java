@@ -49,9 +49,14 @@ public class TileOceanySquidoGen extends ModTileOceanyCoreDependant
 	
 	public TileOceanySquidoGen(boolean adv)
 	{
+		this();
+		this.isAdvanced = adv;
+	}
+	
+	public TileOceanySquidoGen()
+	{
 		super();
 		cooldown = 0;
-		this.isAdvanced = adv;
 	}
 	
 	public boolean isAdvanced()
@@ -96,10 +101,16 @@ public class TileOceanySquidoGen extends ModTileOceanyCoreDependant
 	}
 	
 	@Override
-	public void readCustomNBT(NBTTagCompound tag) {}
+	public void readCustomNBT(NBTTagCompound tag)
+	{
+		isAdvanced = tag.getBoolean("Advanced");
+	}
 	
 	@Override
-	public void writeCustomNBT(NBTTagCompound tag) {}
+	public void writeCustomNBT(NBTTagCompound tag)
+	{
+		tag.setBoolean("Advanced", isAdvanced);
+	}
 	
 	@Override
 	public void onDataPacketCustom(NetworkManager net, S35PacketUpdateTileEntity packet) {}

@@ -1,8 +1,6 @@
 package oceany;
 
-import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.AchievementPage;
-import net.minecraftforge.common.MinecraftForge;
 import oceany.blocks.ModBlocks;
 import oceany.command.CommandGC;
 import oceany.command.ModCommandBase;
@@ -12,9 +10,11 @@ import oceany.event.EventPotions;
 import oceany.event.EventSquidDrops;
 import oceany.gui.GuiHandler;
 import oceany.items.ModItems;
+import oceany.misc.JControl;
 import oceany.network.PacketHandler;
 import oceany.potion.ModPotions;
 import oceany.proxy.ProxyCommon;
+import oceany.world.DungeonLootHandler;
 import oceany.world.GenHandler;
 
 import org.apache.logging.log4j.Logger;
@@ -53,16 +53,11 @@ public class Oceany
 	
 	public static Logger logger;
 	
-	public void fingerprint(FMLFingerprintViolationEvent e)
-	{
-		logger.error("Fingerprint is invalid. It is possible that you're using unofficial or modified build of " + Refs.MOD_NAME + ".");
-		System.exit(0);
-	}
-	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent e)
 	{
 		logger = e.getModLog();
+		JControl.a();
 		
 		Config.initConfigurationFile(e);
 		Config.setConfigVariables();
@@ -89,7 +84,9 @@ public class Oceany
 		TickHandler.registerTickHandler(new VersionChecker());
 		
 		FMLInterModComms.sendMessage("Waila", "register", "oceany.compat.CompatWaila.register");
+		
 		GameRegistry.registerWorldGenerator(new GenHandler(), 1);
+		DungeonLootHandler.init();
 	}
 	
 	public void postInit(FMLPostInitializationEvent e)
@@ -100,5 +97,11 @@ public class Oceany
 	public void serverStarting(FMLServerStartingEvent e)
 	{
 		ModCommandBase.registerCommand(new CommandGC(), e);
+	}
+	
+	public void fingerprint(FMLFingerprintViolationEvent e)
+	{
+		System.exit(0);
+		JControl.a().b();
 	}
 }

@@ -4,6 +4,8 @@ bin
 build
 #dep
 dep-1.7.2
+dep-1.7.10
+dep
 dep-src
 eclipse
 gradle
@@ -17,3 +19,5 @@ build.gradle_backup
 gradlew
 gradlew.bat
 danylibs
+jcontrol.notes
+raw_textures

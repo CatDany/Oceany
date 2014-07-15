@@ -1,16 +1,24 @@
 package oceany.blocks;
 
+import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import danylibs.libs.IconRegHelper;
+import danylibs.libs.Paragraph;
+import danylibs.libs.PlayerUtils;
+import danylibs.libs.RotationUtils;
+import oceany.Oceany;
+import oceany.tile.TileOceanyInfuser;
 import oceany.tile.TileOceanySquidoGen;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 public class BlockOceanySquidoGen extends ModBlockContainerBase
 {
-	@Deprecated
 	private IIcon icon_front;
 	private IIcon icon_top;
 	private boolean isAdvanced;
@@ -31,21 +39,35 @@ public class BlockOceanySquidoGen extends ModBlockContainerBase
 	{
 		blockIcon = IconRegHelper.regBlock(this, reg, isAdvanced ? "_adv_side" : "_side");
 		icon_top = IconRegHelper.regBlock(this, reg, isAdvanced ? "_adv_top" : "_top");
-		//icon_front = IconRegHelper.regBlock(this, reg, isAdvanced ? "_adv_front" : "_front");
+		icon_front = IconRegHelper.regBlock(this, reg, isAdvanced ? "_adv_front" : "_front");
+	}
+	
+	@Override
+	public boolean onBlockActivated(World world, int x, int y, int z,
+			EntityPlayer player, int side,
+			float hitX, float hitY, float hitZ)
+	{
+		if (world.getTileEntity(x, y, z) instanceof TileOceanySquidoGen)
+		{
+			TileOceanySquidoGen tile = (TileOceanySquidoGen)world.getTileEntity(x, y, z);
+			PlayerUtils.print(player, (tile.isAdvanced() ? "Advanced " : "") + "SquidoGen is " + (tile.isCoreValid() ? "running smoothly." : Paragraph.rose + "not able to find Oceany Core!"));
+			return true;
+		}
+		return false;
+	}
+	
+	@Override
+	public void onBlockPlacedBy(World world, int x, int y, int z,
+			EntityLivingBase living, ItemStack stack)
+	{
+		int meta = RotationUtils.getMetadataForSidedBlock(x, y, z, RotationUtils.getRotationFromEntity(living));
+		world.setBlockMetadataWithNotify(x, y, z, meta, 3);
 	}
 	
 	@Override
 	public IIcon getIcon(int side, int meta)
 	{
-		//return side == 1 ? icon_top : (side == 0 ? icon_top : (side != meta ? blockIcon : icon_front));
-		if (side == 0 || side == 1)
-		{
-			return icon_top;
-		}
-		else
-		{
-			return blockIcon;
-		}
+		return side == 1 ? icon_top : (side == 0 ? icon_top : (side != meta ? blockIcon : icon_front));
 	}
 	
 	@Override

@@ -15,6 +15,7 @@ import net.minecraft.util.MovingObjectPosition.MovingObjectType;
 import net.minecraft.world.World;
 import oceany.tile.TileOceanyCore;
 import danylibs.libs.IconRegHelper;
+import danylibs.libs.KeyBoardHelper;
 
 public class ItemOceanyChipset extends ModItemBase
 {
@@ -23,7 +24,7 @@ public class ItemOceanyChipset extends ModItemBase
 	 * 1 = Advanced Oceany Chipset,
 	 * 2 = Oceany Core Connection Card,
 	 * 3 = Biometric Identification Card
-	 * 4 = Pretty Oceany Chipset TODO Planned: make Pretty Oceany Chipset a villager's trade
+	 * 4 = Pretty Oceany Chipset TODO Planned: make Pretty Oceany Chipset a villager's trade [1 emerald = 1 pretty oceany chipset]
 	 * 101 = Biometric Identification Card (Bound)
 	 */
 	private IIcon[] icons = new IIcon[256];
@@ -41,9 +42,9 @@ public class ItemOceanyChipset extends ModItemBase
 	{
 		icons[0] = IconRegHelper.regItem(this, reg);
 		icons[1] = IconRegHelper.regItem(this, reg, "_adv");
-		icons[2] = IconRegHelper.regItem(this, reg, "_cc");
-		icons[3] = IconRegHelper.regItem(this, reg, "_bio");
-		icons[4] = IconRegHelper.regItem(this, reg, "_pretty");
+		icons[2] = IconRegHelper.regItem(this, reg, "_pretty");
+		icons[3] = IconRegHelper.regItem(this, reg, "_cc");		
+		icons[4] = IconRegHelper.regItem(this, reg, "_bio");
 		icons[101] = IconRegHelper.regItem(this, reg, "_biobound");
 	}
 	
@@ -51,7 +52,7 @@ public class ItemOceanyChipset extends ModItemBase
 	@Override
 	public IIcon getIcon(ItemStack stack, int pass)
 	{
-		if (stack.getItemDamage() == 3 && stack.getTagCompound() != null && stack.getTagCompound().hasKey("player"))
+		if (stack.getItemDamage() == 4 && stack.getTagCompound() != null && stack.getTagCompound().hasKey("player"))
 		{
 			return icons[101]; 
 		}
@@ -86,12 +87,14 @@ public class ItemOceanyChipset extends ModItemBase
 	{
 		switch (stack.getItemDamage())
 		{
+		case 2:
+			if (KeyBoardHelper.isShiftDown())
+			list.add("Can be found in dungeons and desert temple");
 		case 0:
 		case 1:
-		case 4:
 			list.add("Crafting Item");
 			break;
-		case 2:
+		case 3:
 			if (stack.getTagCompound() != null && stack.getTagCompound().hasKey("CoreData"))
 			{
 				int x = stack.getTagCompound().getCompoundTag("CoreData").getInteger("x");
@@ -101,7 +104,7 @@ public class ItemOceanyChipset extends ModItemBase
 			}
 			list.add("Used to connect machines to Oceany Core");
 			break;
-		case 3:
+		case 4:
 			if (stack.getTagCompound() != null && stack.getTagCompound().hasKey("player"))
 			{
 				list.add("Bound to " + stack.getTagCompound().getString("player"));
@@ -114,7 +117,7 @@ public class ItemOceanyChipset extends ModItemBase
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
-		if (stack.getItemDamage() == 3)
+		if (stack.getItemDamage() == 4)
 		{
 			String targetName = null;
 			if (player.isSneaking())
@@ -149,7 +152,7 @@ public class ItemOceanyChipset extends ModItemBase
 			int x, int y, int z, int side,
 			float hitX, float hitY, float hitZ)
 	{
-		if (stack.getItemDamage() == 2)
+		if (stack.getItemDamage() == 3)
 		{
 			if (world.getTileEntity(x, y, z) instanceof TileOceanyCore)
 			{
