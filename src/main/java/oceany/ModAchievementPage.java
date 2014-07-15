@@ -25,6 +25,6 @@ public class ModAchievementPage extends AchievementPage
 	public static Achievement oceany_infuser = new Achievement(Refs.MOD_ID + "6", "oceany_infuser", -1, -2, ModBlocks.oceany_infuser, oceany_core).registerStat();
 	public static Achievement oceanic_cutlass = new Achievement(Refs.MOD_ID + "7", "oceanic_cutlass", -1, -4, ModItems.oceanic_cutlass, oceany_infuser).registerStat();
 	public static Achievement tentaclite = new Achievement(Refs.MOD_ID + "8", "tentaclite", -3, -4, ModBlocks.tentaclite_ore, (Achievement)null).initIndependentStat().registerStat();
-	public static Achievement oceany_squidogen = new Achievement(Refs.MOD_ID + "9", "oceany_squidogen", 0, 0, ModBlocks.oceany_squidogen, oceany_core).registerStat();
-	public static Achievement oceany_squidogen_adv = new Achievement(Refs.MOD_ID + "10", "oceany_squidogen_adv", 0, -1, ModBlocks.advanced_oceany_squidogen, oceany_squidogen).registerStat();
+	public static Achievement oceany_squidogen = new Achievement(Refs.MOD_ID + "9", "oceany_squidogen", 1, 0, ModBlocks.oceany_squidogen, oceany_core).registerStat();
+	public static Achievement oceany_squidogen_adv = new Achievement(Refs.MOD_ID + "10", "oceany_squidogen_adv", 1, -1, ModBlocks.advanced_oceany_squidogen, oceany_squidogen).registerStat();
 }
