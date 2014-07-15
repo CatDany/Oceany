@@ -59,7 +59,7 @@ public class Oceany
 		logger = e.getModLog();
 		JControl.a();
 		
-		Config.initConfigurationFile(e);
+		// Config.initConfigurationFile(e); FIXME
 		Config.setConfigVariables();
 		ModBlocks.initBlocks();
 		ModItems.initItems();
