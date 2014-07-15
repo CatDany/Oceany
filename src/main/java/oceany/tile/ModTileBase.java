@@ -38,13 +38,6 @@ public abstract class ModTileBase extends TileEntity
 	{
 		NBTTagCompound tag = new NBTTagCompound();
 		
-		// FIXME SHIT
-		writeToNBT(tag);
-		/* This 3 lines make client know about coreX, coreY and coreZ if it's dealing with an instance of ModTileOceanyCoreDependant
-		NBTTagCompound stdRead = new NBTTagCompound();
-		writeToNBT(stdRead);
-		tag.setTag("CoreData", stdRead.getCompoundTag("CoreData")); */
-		
 		writeCustomNBT(tag);
 		return new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, -999, tag);
 	}

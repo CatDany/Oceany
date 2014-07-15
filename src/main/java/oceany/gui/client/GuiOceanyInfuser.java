@@ -41,8 +41,8 @@ public class GuiOceanyInfuser extends GuiContainer
 
 		drawCenteredString(mc.fontRenderer, strCoreStatus, guiLeft + xSize / 2, guiTop + 25, tile.isCoreValid() ? 0xffffff : 0xff3333);
 		if (tile.inventory[0] != null)
-		{			
-			String strCost = LocalizationHelper.get("info.oceany_infuser.cost", (int)(tile.getEnergyCostFromInput(tile.inventory[0]) - (tile.process / 100 * tile.getEnergyCostFromInput(tile.inventory[0]))));
+		{
+			String strCost = LocalizationHelper.get("info.oceany_infuser.cost", (int)(tile.getEnergyCostFromInput(tile.inventory[0]) - (tile.process / 100 * tile.getEnergyCostFromInput(tile.inventory[0]))) < 0 ? 0 : (int)(tile.getEnergyCostFromInput(tile.inventory[0]) - (tile.process / 100 * tile.getEnergyCostFromInput(tile.inventory[0]))));
 			drawCenteredString(mc.fontRenderer, strCost, guiLeft + xSize / 2, guiTop + 65, 0xffffff);
 		}
 	}

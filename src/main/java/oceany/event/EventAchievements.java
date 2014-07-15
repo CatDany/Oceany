@@ -30,6 +30,10 @@ public class EventAchievements
 			e.player.addStat(ModAchievementPage.oceany_infuser, 1);
 		else if ("oceanic_cutlass".equals(result) && oceany)
 			e.player.addStat(ModAchievementPage.oceanic_cutlass, 1);
+		else if ("oceanic_squidogen".equals(result) && oceany)
+			e.player.addStat(ModAchievementPage.oceany_squidogen, 1);
+		else if ("advanced_oceanic_squidogen".equals(result) && oceany)
+			e.player.addStat(ModAchievementPage.oceany_squidogen_adv, 1);
 	}
 	
 	@SubscribeEvent

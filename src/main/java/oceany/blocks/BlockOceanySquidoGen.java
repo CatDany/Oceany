@@ -21,6 +21,7 @@ public class BlockOceanySquidoGen extends ModBlockContainerBase
 {
 	private IIcon icon_front;
 	private IIcon icon_top;
+	private IIcon icon_front_adv;
 	private boolean isAdvanced;
 	
 	public BlockOceanySquidoGen(boolean adv)
@@ -37,9 +38,9 @@ public class BlockOceanySquidoGen extends ModBlockContainerBase
 	@Override
 	public void registerBlockIcons(IIconRegister reg)
 	{
-		blockIcon = IconRegHelper.regBlock(this, reg, isAdvanced ? "_adv_side" : "_side");
-		icon_top = IconRegHelper.regBlock(this, reg, isAdvanced ? "_adv_top" : "_top");
-		icon_front = IconRegHelper.regBlock(this, reg, isAdvanced ? "_adv_front" : "_front");
+		blockIcon = IconRegHelper.regBlock(this, reg, "_side");
+		icon_top = IconRegHelper.regBlock(this, reg, "_top");
+		icon_front = IconRegHelper.regBlock(this, reg, "_front");
 	}
 	
 	@Override
@@ -50,7 +51,7 @@ public class BlockOceanySquidoGen extends ModBlockContainerBase
 		if (world.getTileEntity(x, y, z) instanceof TileOceanySquidoGen)
 		{
 			TileOceanySquidoGen tile = (TileOceanySquidoGen)world.getTileEntity(x, y, z);
-			PlayerUtils.print(player, (tile.isAdvanced() ? "Advanced " : "") + "SquidoGen is " + (tile.isCoreValid() ? "running smoothly." : Paragraph.rose + "not able to find Oceany Core!"));
+			PlayerUtils.print(player, (!tile.isCoreValid() ? Paragraph.rose : "") + (tile.isAdvanced() ? "Advanced " : "") + "SquidoGen is " + (tile.isCoreValid() ? "running smoothly." : "not able to find Oceany Core!"));
 			return true;
 		}
 		return false;

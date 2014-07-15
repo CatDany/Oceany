@@ -28,7 +28,7 @@ import danylibs.libs.SoundHelper;
 
 public class ItemCutlass extends ItemSword
 {
-	private static final ToolMaterial mat = EnumHelper.addToolMaterial(Refs.MOD_ID + ":Cutlass", 0, 51, 1.0F, -4.0F, 20);
+	private static final ToolMaterial mat = EnumHelper.addToolMaterial(Refs.MOD_ID + ":Cutlass", 0, 51, 1.0F, -4.0F, 25);
 	
 	public ItemCutlass()
 	{
@@ -123,6 +123,7 @@ public class ItemCutlass extends ItemSword
 				}
 				return true;
 			}
+			updateItemDamage(stack);
 		}
 		return false;
 	}

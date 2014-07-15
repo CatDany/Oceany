@@ -3,6 +3,7 @@ package oceany.tile;
 import danylibs.libs.ItemUtils;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import oceany.blocks.ModBlocks;
 
@@ -16,7 +17,7 @@ public abstract class ModTileOceanyCoreDependant extends ModTileBase
 	protected int cooldown_core_check;
 	
 	/**
-	 * Do not override this. Use tick() instead
+	 * Do not override this. Use tick() instead 
 	 */
 	@Override
 	public void updateEntity()
@@ -53,25 +54,21 @@ public abstract class ModTileOceanyCoreDependant extends ModTileBase
 	
 	public ModTileOceanyCoreDependant()
 	{
-		coreX = (int)(Integer.MAX_VALUE * 2);
-		coreY = (int)(Integer.MAX_VALUE * 2);
-		coreZ = (int)(Integer.MAX_VALUE * 2);
+		coreX = -300;
+		coreY = -300;
+		coreZ = -300;
 	}
 	
-	@Override
-	public void readFromNBT(NBTTagCompound tag)
+	public void readCoreDataFromNBT(NBTTagCompound tag)
 	{
-		super.readFromNBT(tag);
 		NBTTagCompound coreData = tag.getCompoundTag("CoreData");
 		coreX = coreData.getInteger("x");
 		coreY = coreData.getInteger("y");
 		coreZ = coreData.getInteger("z");
 	}
 	
-	@Override
-	public void writeToNBT(NBTTagCompound tag)
+	public void writeCoreDataToNBT(NBTTagCompound tag)
 	{
-		super.writeToNBT(tag);
 		NBTTagCompound coreData = new NBTTagCompound();
 		coreData.setInteger("x", coreX);
 		coreData.setInteger("y", coreY);
@@ -90,7 +87,7 @@ public abstract class ModTileOceanyCoreDependant extends ModTileBase
 		else if (ItemUtils.compare(worldObj.getBlock(xCoord, yCoord, zCoord + distanceFromCore), ModBlocks.oceany_core))
 			return new int[] {xCoord, yCoord, zCoord + distanceFromCore};
 		
-		return new int[] {(int)(Integer.MAX_VALUE * 2), (int)(Integer.MAX_VALUE * 2), (int)(Integer.MAX_VALUE * 2)};
+		return new int[] {-300, -300, -300};
 	}
 	
 	public int[] getFoundCore()
@@ -100,7 +97,25 @@ public abstract class ModTileOceanyCoreDependant extends ModTileBase
 	
 	public boolean isCoreValid()
 	{
-		return !(coreX == Integer.MAX_VALUE * 2 || coreY == Integer.MAX_VALUE * 2 || coreZ == Integer.MAX_VALUE * 2) && worldObj.getTileEntity(coreX, coreY, coreZ) instanceof TileOceanyCore;
+		return !(coreX == -300 || coreY == -300 || coreZ == -300) && worldObj.getTileEntity(coreX, coreY, coreZ) instanceof TileOceanyCore;
+	}
+	
+	@Override
+	public Packet getDescriptionPacket()
+	{
+		NBTTagCompound tag = new NBTTagCompound();
+		
+		writeCustomNBT(tag);
+		writeCoreDataToNBT(tag);
+		
+		return new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, -999, tag);
+	}
+	
+	@Override
+	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity packet)
+	{
+		super.onDataPacket(net, packet);
+		readCoreDataFromNBT(packet.func_148857_g());
 	}
 	
 	enum TETickType

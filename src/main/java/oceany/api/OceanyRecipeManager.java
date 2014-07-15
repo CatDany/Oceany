@@ -21,10 +21,14 @@ public class OceanyRecipeManager
 			return instance;
 		}
 		
+		/**
+		 * NOTE: It doesn't support metadata yet! It's only using Item and its Damage in input and also StackSize in output!
+		 */
 		@Override
 		public void addRecipe(ItemStack input, ItemStack output, int energy)
 		{
 			input.stackSize = 1;
+			output.stackSize = 1;
 			recipes.put(input, output);
 			energies.put(input, energy);
 		}
@@ -44,9 +48,6 @@ public class OceanyRecipeManager
 			return false;
 		}
 		
-		/**
-		 * NOTE: Keep in mind that it doesn't check stack size
-		 */
 		@Override
 		public boolean recipeExistsFor(ItemStack output)
 		{

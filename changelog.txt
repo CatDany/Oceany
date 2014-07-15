@@ -1,8 +1,19 @@
-indev-73 (Not built):
-- Added textures to #allthethings
+alpha-1:
+- Bumped to alpha
+
+indev-73:
+- Added textures to #allthethings [FINALLY!]
+- Oceany Infuser and Oceany SquidoGens now sync their coreX, coreY and coreZ correctly (in other words, Oceany Infuser GUI is no more saying "Oceany Core Not Found")
+- Fixed crash when something is done infusing in Oceany Infuser
+- Changed enchantability of Oceanic Cutlass from 20 to 25
+- Fixed: Oceany Infuser GUI show "Energy Required: -1 / -2 / -4514214 / -whatever" (it was only visual bug.. or not, but it doesn't break anything on serverside tho)
+- Something is broken. You can insert items into Oceany Infuser using hopper but can't extract. I only tested it with hopper and it seems weird :/ #GITHUBERSHALP
+- Added 2 achievements (Oceany SquidoGen and Advanced Oceany SquidoGen)
+- Changed Oceany SquidoGens status message a little bit (just to make it look a little bit nicer)
+- Fixed silly derp with different unlocalized names of the same block class and derped icon pathes >_>
 
 indev-72:
-- Added recipe list for Oceany Infuser
+- Added config option for Pretty Oceany Chipset as a dungeon loot, if false there'll be a recipe for it (by default, it is dungeon loot)
 
 indev-71:
 - Backported to 1.7.2 (waiting for Baubles to update)

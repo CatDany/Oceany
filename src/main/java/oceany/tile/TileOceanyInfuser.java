@@ -1,18 +1,22 @@
 package oceany.tile;
 
-import danylibs.libs.InventoryUtils;
-import danylibs.libs.ItemUtils;
-import danylibs.libs.RotationUtils;
+import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.ISidedInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 import oceany.api.OceanyRecipeManager.InfuserRecipeManager;
+import cpw.mods.fml.common.registry.GameRegistry;
+import danylibs.libs.ItemUtils;
+import danylibs.libs.RotationUtils;
 
 public class TileOceanyInfuser extends ModTileOceanyCoreDependant implements ISidedInventory
 {
@@ -25,48 +29,53 @@ public class TileOceanyInfuser extends ModTileOceanyCoreDependant implements ISi
 	
 	private static final int sizeInventory = 2;
 	public ItemStack[] inventory = new ItemStack[sizeInventory];
+	public Item lastInput;
 	
 	@Override
 	public void tick(TETickType type)
 	{
 		if (type == TETickType.CORE_DEPENDANT)
 		{
-			if (inventory[0] != null && getOutputFromInput(inventory[0]) != null)
+			if (inventory[0] != null && getOutputFromInput(inventory[0]) != null && ItemUtils.compare(inventory[0].getItem(), lastInput))
 			{
 				if (worldObj.getTileEntity(coreX, coreY, coreZ) instanceof TileOceanyCore)
 				{
-					if (process < 100)
+					if (!worldObj.isRemote)
 					{
-						TileOceanyCore tile = (TileOceanyCore)worldObj.getTileEntity(coreX, coreY, coreZ);
-						if (tile.consumeEnergy(usagePerTick))
+						if (process < 100)
 						{
-							double cost = getEnergyCostFromInput(inventory[0]);
-							double progress = usagePerTick / cost * 100;
-							process = process + progress;
+							TileOceanyCore tile = (TileOceanyCore)worldObj.getTileEntity(coreX, coreY, coreZ);
+							if (tile.consumeEnergy(usagePerTick))
+							{
+								double cost = getEnergyCostFromInput(inventory[0]);
+								double progress = usagePerTick / cost * 100;
+								process = process + progress;
+							}
 						}
-					}
-					else
-					{
-						ItemStack output = inventory[1].copy();
-						if (output == null)
+						else
 						{
-							output = getOutputFromInput(inventory[0]);
-							output.stackSize--;
-						}
-						if (ItemUtils.compare(output, getOutputFromInput(inventory[0])) && (getInventoryStackLimit() - (inventory[1] == null ? 0 : inventory[1].stackSize)) >= output.stackSize)
-						{
-							output.stackSize += getOutputFromInput(inventory[0]).stackSize;
-							decrStackSize(0, 1);
-							setInventorySlotContents(1, output);
-							process = 0.00;
+							ItemStack output = inventory[1] == null ? null : inventory[1].copy();
+							if (output == null)
+							{
+								output = getOutputFromInput(inventory[0]);
+								output.stackSize = 0;
+							}
+							if (ItemUtils.compare(output, getOutputFromInput(inventory[0])))
+							{
+								output.stackSize++;
+								decrStackSize(0, 1);
+								setInventorySlotContents(1, output);
+								process = 0.00;
+							}
 						}
 					}
 				}
 			}
-			else if (inventory[0] == null)
+			else
 			{
 				process = 0;
 			}
+			this.lastInput = inventory[0] == null ? Items.potato : inventory[0].getItem();
 			markDirty();
 		}
 	}
@@ -75,6 +84,7 @@ public class TileOceanyInfuser extends ModTileOceanyCoreDependant implements ISi
 	{
 		super();
 		process = 0.00;
+		lastInput = Items.potato; // Potato for your convenience
 	}
 	
 	@Override
@@ -99,6 +109,12 @@ public class TileOceanyInfuser extends ModTileOceanyCoreDependant implements ISi
                 this.inventory[j] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
             }
         }
+		
+		NBTTagCompound lastInputData = tag.getCompoundTag("LastInput");
+		boolean lastInputData_isBlock = lastInputData.getBoolean("isBlock");
+		String lastInputData_modId = lastInputData.getString("modId");
+		String lastInputData_itemName = lastInputData.getString("itemName");
+		lastInput = lastInputData_isBlock ? Item.getItemFromBlock(GameRegistry.findBlock(lastInputData_modId, lastInputData_itemName)) : GameRegistry.findItem(lastInputData_modId, lastInputData_itemName);
 	}
 	
 	@Override
@@ -117,8 +133,16 @@ public class TileOceanyInfuser extends ModTileOceanyCoreDependant implements ISi
                 taglist.appendTag(compound);
             }
         }
-
         tag.setTag("Items", taglist);
+        
+        NBTTagCompound lastInputData = new NBTTagCompound();
+        boolean lastInputData_isBlock = Block.getBlockFromItem(lastInput) != Blocks.air;
+        String lastInputData_modId = ItemUtils.getUniqueModName(lastInput);
+        String lastInputData_itemName = ItemUtils.getUniqueItemName(lastInput);
+        lastInputData.setBoolean("isBlock", lastInputData_isBlock);
+        lastInputData.setString("modId"	, lastInputData_modId);
+        lastInputData.setString("itemName", lastInputData_itemName);
+        tag.setTag("LastInput", lastInputData);
 	}
 	
 	@Override
@@ -133,7 +157,7 @@ public class TileOceanyInfuser extends ModTileOceanyCoreDependant implements ISi
 		}
 		else
 		{
-			return new int[] {};
+			return new int[] {1};
 		}
 	}
 	
