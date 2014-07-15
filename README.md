@@ -41,7 +41,7 @@ Questions and Answers (RQAA)
 - Yes, indeed you can. You can either contribute by Pull-Requesting your code to my project or
 giving me ideas / bug-reports through "Issues" on my project. If you pull-request something
 useful in my opinion or give an awesome suggestion / bug-report you'll be added to mod's
-contributors and to the credits of my mod. By the way you can check [**credits here**].
+contributors and to the credits of my mod.
 
 **Ha-ha-ha. I'm baad, I'm going to download your source code, recompile it and even MODIFY!!!**
 - If you're breaking the rules, I'll break the rules too. I highly recommend you **not to do it**,
