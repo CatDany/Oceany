@@ -1,3 +1,6 @@
+alpha-3 (not final):
+- Moar achievement moving <-- / --> / ^^^
+
 alpha-2:
 - Moved Oceany SquidoGens achievements a little bit that way ---->
 - Fixed Oceany Infuser recipe
