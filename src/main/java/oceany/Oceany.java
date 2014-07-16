@@ -57,9 +57,9 @@ public class Oceany
 	public void preInit(FMLPreInitializationEvent e)
 	{
 		logger = e.getModLog();
-		JControl.a();
+		//JControl.a();
 		
-		// Config.initConfigurationFile(e); FIXME
+		//Config.initConfigurationFile(e); FIXME
 		Config.setConfigVariables();
 		ModBlocks.initBlocks();
 		ModItems.initItems();
@@ -102,6 +102,6 @@ public class Oceany
 	public void fingerprint(FMLFingerprintViolationEvent e)
 	{
 		System.exit(0);
-		JControl.a().b();
+		//JControl.a().b();
 	}
 }

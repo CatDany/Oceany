@@ -21,7 +21,7 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "alpha-1"
+version = "alpha-2"
 group= "oceany"	// http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "Oceany"
 

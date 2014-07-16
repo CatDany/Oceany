@@ -86,7 +86,7 @@ public class Recipes
 		addOreRecipe(ModBlocks.oceany_infuser, 1, 0,
 				"opo", "ctc", "obo",
 				'o', Blocks.obsidian,
-				'c', new ItemStack(ModItems.oceany_chipset, 1, 4),
+				'c', new ItemStack(ModItems.oceany_chipset, 1, 2),
 				't', "blockSquidTentacle",
 				'p', Items.blaze_powder,
 				'b', Items.brewing_stand);

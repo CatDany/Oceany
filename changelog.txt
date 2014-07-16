@@ -1,3 +1,8 @@
+alpha-2:
+- Moved Oceany SquidoGens achievements a little bit that way ---->
+- Fixed Oceany Infuser recipe
+- Looking up for some weirdness with Advanced Oceany SquidoGen. It SOMETIMES might not collect drops #GITHUBERSHALP #ALPHATESTERSHALP
+
 alpha-1:
 - Bumped to alpha
 
