@@ -137,6 +137,11 @@ public class Recipes
 				'p', Items.paper,
 				'c', new ItemStack(ModItems.oceany_chipset, 1, 0));
 		
+		addOreRecipe(ModItems.danys_brain, 1, 1,
+				" g ", "gbg", " g ",
+				'g', Items.gold_ingot,
+				'b', new ItemStack(ModItems.danys_brain, 1, 0));
+		
 		//--- Mod Recipes ---//
 		InfuserRecipeManager.instance().addRecipe(
 				new ItemStack(ModItems.squid_tentacle, 1, 0),

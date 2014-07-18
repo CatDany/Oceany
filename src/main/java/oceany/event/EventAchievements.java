@@ -1,5 +1,7 @@
 package oceany.event;
 
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.StatCollector;
 import oceany.ModAchievementPage;
 import oceany.Refs;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -44,10 +46,14 @@ public class EventAchievements
 		String fullResult = ItemUtils.getFullUniqueItemName(e.pickedUp.getEntityItem().getItem());
 		boolean oceany = ItemUtils.getUniqueModName(e.pickedUp.getEntityItem().getItem()).equals(Refs.MOD_ID);
 		String result = ItemUtils.getUniqueItemName(e.pickedUp.getEntityItem().getItem());
+		int resultMeta = e.pickedUp.getEntityItem().getItemDamage();
+		NBTTagCompound resultData = e.pickedUp.getEntityItem().getTagCompound();
 		
 		if ("squid_tentacle".equals(result) && oceany)
 			e.player.addStat(ModAchievementPage.tentacle, 1);
 		else if ("tentaclite_ore".equals(result) && oceany)
 			e.player.addStat(ModAchievementPage.tentaclite, 1);
+		else if ("danys_brain".equals(result) && resultMeta == 0 && oceany)
+			e.player.addStat(ModAchievementPage.brain, 1);
 	}
 }

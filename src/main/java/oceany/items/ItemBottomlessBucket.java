@@ -19,8 +19,14 @@ public class ItemBottomlessBucket extends ModItemBase
 	}
 	
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player,
-			List list, boolean par4)
+	public void addDetailedInfoToList(List list, EntityPlayer player, ItemStack stack)
+	{
+		list.add("Right-click to suck a block of");
+		list.add("liquid into the void.");
+	}
+	
+	@Override
+	public void addTooltipInfo(List list, EntityPlayer player, ItemStack stack)
 	{
 		list.add("Suck It Up!");
 	}

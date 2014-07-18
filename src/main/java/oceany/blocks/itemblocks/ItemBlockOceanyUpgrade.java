@@ -25,12 +25,23 @@ public class ItemBlockOceanyUpgrade extends ModItemBlockBase
 	}
 	
 	@Override
-	public void addInformation(ItemStack stack,
-			EntityPlayer player, List list, boolean par4)
+	public void addTooltipInfo(List list, EntityPlayer player, ItemStack stack)
 	{
 		String upgradeName = StatCollector.translateToLocal(getUnlocalizedName() + "|" + stack.getItemDamage() +".desc");
 		list.add(upgradeName);
 		list.add(LocalizationHelper.get("info.waila.oceany_core.perTick") + " : " + BlockOceanyUpgrade.energyUsage[stack.getItemDamage()]);
+	}
+	
+	@Override
+	public void addDetailedInfoToList(List list, EntityPlayer player, ItemStack stack)
+	{
+		list.add("Allows you to upgrade");
+		list.add("Oceany Core. For it to");
+		list.add("work, it needs to be");
+		list.add("placed on top of the");
+		list.add("core. You can stack");
+		list.add("upgrades by placing");
+		list.add("them on top of eachother");
 	}
 	
 	@Override

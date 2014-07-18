@@ -13,7 +13,7 @@ public class ModAchievementPage extends AchievementPage
 			tentacle, tentacle_bar, tentacle_block,
 			oceany_core, oceany_upgrade, oceany_infuser,
 			oceanic_cutlass, tentaclite, oceany_squidogen,
-			oceany_squidogen_adv
+			oceany_squidogen_adv, brain
 			});
 	}
 	
@@ -27,4 +27,5 @@ public class ModAchievementPage extends AchievementPage
 	public static Achievement tentaclite = new Achievement(Refs.MOD_ID + "8", "tentaclite", -3, -4, ModBlocks.tentaclite_ore, (Achievement)null).initIndependentStat().registerStat();
 	public static Achievement oceany_squidogen = new Achievement(Refs.MOD_ID + "9", "oceany_squidogen", 1, 0, ModBlocks.oceany_squidogen, oceany_core).registerStat();
 	public static Achievement oceany_squidogen_adv = new Achievement(Refs.MOD_ID + "10", "oceany_squidogen_adv", 1, -2, ModBlocks.advanced_oceany_squidogen, oceany_squidogen).registerStat();
+	public static Achievement brain = new Achievement(Refs.MOD_ID + "11", "brain", -5, -4, ModItems.danys_brain, (Achievement)null).initIndependentStat().registerStat();
 }

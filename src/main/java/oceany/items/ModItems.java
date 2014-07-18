@@ -9,6 +9,7 @@ public class ModItems
 	public static Item tentacle_bar;
 	public static Item bottomless_bucket;
 	public static Item oceany_chipset;
+	public static Item danys_brain;
 	
 	public static Item oceanic_cutlass;
 	
@@ -29,5 +30,8 @@ public class ModItems
 		
 		oceany_chipset = new ItemOceanyChipset();
 		GameRegistry.registerItem(oceany_chipset, "oceany_chipset");
+		
+		danys_brain = new ItemBrain();
+		GameRegistry.registerItem(danys_brain, "danys_brain");
 	}
 }

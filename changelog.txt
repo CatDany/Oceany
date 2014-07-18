@@ -1,5 +1,12 @@
 alpha-3 (not final):
 - Moar achievement moving <-- / --> / ^^^
+- Added Dany's Brain (get it from killing Dany2001RU or entities named like this)
+- If you have Dany's Brain in your inventory and you hold shift when hovering on an item from Oceany, you'll get additional information if it's existing in Dany's Knowledge ;)
+- Finally added something related to Baubles (Ring of Dany's Knowledge!)
+- Added recipe for Ring of Dany's Knowledge
+- Added extra drop from any living entity that has Custom Name "Dany2001RU" (Dany's Brain)
+- SquidoGen drops handler now has the lowest priority, I assume it should collect all the squid drops added by all the mods (exceptions are the lowest priority event handlers of mods which names are something like "ZZZZZAntiSquidoGenDropsModMuhahahahah"
+- Added detailed information for every item and block in Oceany mod, doesn't support localization yet (it's in my TODO list). To see this detailed info you need to wear a Ring of Dany's Knowledge
 
 alpha-2:
 - Moved Oceany SquidoGens achievements a little bit that way ---->

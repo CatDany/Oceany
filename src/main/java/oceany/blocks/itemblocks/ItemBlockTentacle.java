@@ -4,6 +4,7 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
@@ -35,4 +36,13 @@ public class ItemBlockTentacle extends ModItemBlockBase
 		list.add(new ItemStack(item, 1, 0));
 		list.add(new ItemStack(item, 1, 1));
 	}
+	
+	@Override
+	public void addDetailedInfoToList(List list, EntityPlayer player, ItemStack stack)
+	{
+		list.add("Container Block");
+	}
+	
+	@Override
+	public void addTooltipInfo(List list, EntityPlayer player, ItemStack stack) {}
 }

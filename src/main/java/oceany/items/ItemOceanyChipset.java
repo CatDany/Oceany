@@ -82,18 +82,10 @@ public class ItemOceanyChipset extends ModItemBase
 	}
 	
 	@Override
-	public void addInformation(ItemStack stack, EntityPlayer player,
-			List list, boolean par4)
+	public void addTooltipInfo(List list, EntityPlayer player, ItemStack stack)
 	{
 		switch (stack.getItemDamage())
 		{
-		case 2:
-			if (KeyBoardHelper.isShiftDown())
-			list.add("Can be found in dungeons and desert temple");
-		case 0:
-		case 1:
-			list.add("Crafting Item");
-			break;
 		case 3:
 			if (stack.getTagCompound() != null && stack.getTagCompound().hasKey("CoreData"))
 			{
@@ -102,7 +94,6 @@ public class ItemOceanyChipset extends ModItemBase
 				int z = stack.getTagCompound().getCompoundTag("CoreData").getInteger("z");
 				list.add("Bound to Oceany Core at " + x + ", " + y + ", " + z);
 			}
-			list.add("Used to connect machines to Oceany Core");
 			break;
 		case 4:
 			if (stack.getTagCompound() != null && stack.getTagCompound().hasKey("player"))
@@ -111,6 +102,22 @@ public class ItemOceanyChipset extends ModItemBase
 			}
 			list.add("Not Yet Implemented");
 			break;
+		}
+	}
+	
+	@Override
+	public void addDetailedInfoToList(List list, EntityPlayer player, ItemStack stack)
+	{
+		switch (stack.getItemDamage())
+		{
+		case 2:
+			list.add("Can be found in dungeons and desert temples");
+			break;
+		case 3:
+			list.add("Used to connect machines to Oceany Core");
+			break;
+		case 4:
+			list.add("Used to identify players");
 		}
 	}
 	

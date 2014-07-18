@@ -6,11 +6,11 @@ import oceany.command.CommandGC;
 import oceany.command.ModCommandBase;
 import oceany.damage.ModDamageSources;
 import oceany.event.EventAchievements;
+import oceany.event.EventNotifications;
 import oceany.event.EventPotions;
 import oceany.event.EventSquidDrops;
 import oceany.gui.GuiHandler;
 import oceany.items.ModItems;
-import oceany.misc.JControl;
 import oceany.network.PacketHandler;
 import oceany.potion.ModPotions;
 import oceany.proxy.ProxyCommon;
@@ -59,7 +59,7 @@ public class Oceany
 		logger = e.getModLog();
 		//JControl.a();
 		
-		//Config.initConfigurationFile(e); FIXME
+		Config.initConfigurationFile(e);
 		Config.setConfigVariables();
 		ModBlocks.initBlocks();
 		ModItems.initItems();
@@ -77,9 +77,11 @@ public class Oceany
 		PacketHandler.instance().init();
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
 		
+		// alphabetically now, dany
 		EventBusHelper.checkBusAndRegister(new EventAchievements());
-		EventBusHelper.checkBusAndRegister(new EventSquidDrops());
+		EventBusHelper.checkBusAndRegister(new EventNotifications());
 		EventBusHelper.checkBusAndRegister(new EventPotions());
+		EventBusHelper.checkBusAndRegister(new EventSquidDrops());
 		
 		TickHandler.registerTickHandler(new VersionChecker());
 		

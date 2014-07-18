@@ -44,8 +44,7 @@ public class ItemCutlass extends ItemSword
 	}
 	
 	@Override
-	public void addInformation(ItemStack stack,
-			EntityPlayer player, List list, boolean par4)
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
 	{
 		if (stack.getTagCompound() == null || !stack.getTagCompound().hasKey("Energy") || stack.getTagCompound().getInteger("Energy") == 0)
 		{
