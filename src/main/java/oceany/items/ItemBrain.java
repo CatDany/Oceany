@@ -149,7 +149,7 @@ public class ItemBrain extends ModItemBase implements IBauble
 		
 		private static String getString(String defaultColor, String highlightColor)
 		{
-			String left = originalStr.substring(0, currentLetter - 1);
+			String left = originalStr.substring(0, currentLetter);
 			String highlightedLetter = new String(new char[] {originalStr.charAt(currentLetter)});
 			String right = originalStr.substring(currentLetter + 1);
 			return defaultColor + left + highlightColor + highlightedLetter + defaultColor + right + Paragraph.reset;
